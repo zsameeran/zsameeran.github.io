@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Skill buddy - Categories</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="Course Project">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="styles/bootstrap4/bootstrap.min.css">
+    <link href="plugins/fontawesome-free-5.0.1/css/fontawesome-all.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" type="text/css" href="styles/courses_styles.css">
+    <link rel="stylesheet" type="text/css" href="styles/courses_responsive.css">
+    <script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-storage.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-database.js"></script>
+    <link rel="stylesheet" href="intlTelInput.css">  
+    <script src="intlTelInput.js"></script>
+    <script src="utils.js"></script>
+    <link rel="stylesheet" type="text/css" href="phoneVeri.css">
+</head>
+
+<body>
+
+    <header class="header d-flex flex-row">
+        <div class="header_content d-flex flex-row align-items-center">
+            <!-- Logo -->
+            <div class="logo_container">
+                <div class="logo">
+                    <img src="199.png" alt="">
+                    <span>Skill buddy</span>
+                </div>
+            </div>
+
+            <!-- Main Navigation -->
+            <nav class="main_nav_container">
+                <div class="main_nav">
+                    <ul class="main_nav_list">
+                        <li class="main_nav_item"><a href="index.html">home</a></li>
+                        <li class="main_nav_item"><a href="#">about us</a></li>
+                        <li class="main_nav_item"><a href="courses.html">Categories</a></li>
+
+                    </ul>
+                </div>
+            </nav>
+        </div>
+        <div class="header_side d-flex flex-row justify-content-center align-items-center">
+
+            <span></span>
+        </div>
+
+        <!-- Hamburger -->
+        <div class="hamburger_container">
+            <i class="fas fa-bars trans_200"></i>
+        </div>
+
+    </header>
+
+    <!-- Menu -->
+    <div class="menu_container menu_mm">
+
+        <!-- Menu Close Button -->
+        <div class="menu_close_container">
+            <div class="menu_close"></div>
+        </div>
+
+        <!-- Menu Items -->
+        <div class="menu_inner menu_mm">
+            <div class="menu menu_mm">
+                <ul class="menu_list menu_mm">
+                    <li class="menu_item menu_mm"><a href="#">Home</a></li>
+                    <li class="menu_item menu_mm"><a href="#">About us</a></li>
+                    <li class="menu_item menu_mm"><a href="#">Categories</a></li>
+
+
+                </ul>
+
+                <!-- Menu Social -->
+
+                <div class="menu_social_container menu_mm">
+                    <ul class="menu_social menu_mm">
+
+                        <li class="menu_social_item menu_mm"><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                        <li class="menu_social_item menu_mm"><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
+                        <li class="menu_social_item menu_mm"><a href="#"><i class="fab fa-instagram"></i></a></li>
+
+                    </ul>
+                </div>
+
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="container my-block">
+
+        <h1 class="phone-title">PHONE VERIFICATION</h1>
+        <!-- Content here -->
+        <p class="phone-para">Verify yourself using Re-Captcha. click on Send-OTP to send a verification code on your
+            phone.</p>
+            <div id="helloworld" class="col-md-10 col-sm-9 col-xs-12  phone-input">
+                <input id="phone" name="phone" type="tel" class="form-control">
+            </div>
+        <div id="recaptcha-container" class="recap"></div>
+        <button type="button" class="btn mybutton btn-secondary" onclick="sendOtp()" >Send-OTP</button>
+        <div class="input-code">
+            <input type="text" class="form-control" id="verification-code" >
+        </div>
+        <button type="button" class="btn btn-secondary verify-btn" onclick="verify_otp()">Verify</button>
+    </div>
+<script src="phoneVerification.js"></script>
+
+</body>
+
+</html>
