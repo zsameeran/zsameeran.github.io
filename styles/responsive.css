@@ -77,7 +77,7 @@
 ************/
 
 @media only screen and (max-width: 1280px)
-{
+{    
 	.header
 	{
 		width: 90%;
@@ -147,14 +147,18 @@
 ************/
 
 @media only screen and (max-width: 991px)
-{
+
+{    .header{
+	  height: 85px;
+	  top:25px;
+	}
 	.main_nav_container
 	{
 		display: none;
 	}
 	.logo_container
 	{
-		padding-left: 30px;
+		padding-left: 450px;
 	}
 	.hamburger_container
 	{
@@ -261,7 +265,8 @@
 
 @media only screen and (max-width: 768px)
 {
-	
+	.logo_container{
+	padding-left: 400px;
 }
 
 /************
@@ -269,7 +274,17 @@
 ************/
 
 @media only screen and (max-width: 767px)
-{
+
+{   .header
+	{
+		height: 74px;
+		top:25px;
+	}
+	.logo_container 
+	{
+       padding-left: 350px;
+     }
+
 	.menu_container
 	{
 		right: -100vw;
@@ -284,6 +299,25 @@
 	{
 		margin-top: 15px;
 	}
+}
+/************
+10. 640px
+************/
+
+@media only screen and (max-width: 640px){
+
+   .logo_container{
+	padding-left: 320px;
+}
+
+}
+@media only screen and (max-width: 600px){
+
+   .logo_container{
+	padding-left: 300px;
+
+}
+   
 }
 
 /************
@@ -300,7 +334,7 @@
 	}
 	.logo_container
 	{
-		padding-left: 15px;
+		padding-left: 300px;
 	}
 	.logo img
 	{
@@ -432,7 +466,10 @@
 
 @media only screen and (max-width: 539px)
 {
-	
+	.logo_container
+	{
+		padding-left: 350px;
+	}
 }
 
 /************
@@ -454,6 +491,10 @@
 	{
 		height: 60px;
 		top: 15px;
+	}
+	.logo_container
+	{
+		padding-left: 250px;
 	}
 	.hero_slide_content h1
 	{
@@ -500,10 +541,35 @@
 
 @media only screen and (max-width: 400px)
 {
-	
+	.logo_container
+	{
+		padding-left: 170px;
+	}
 }
 /************
-15. herobox background
+15. 320px
+************/
+
+@media only screen and (max-width: 320px)
+{
+	.logo_container
+	{
+		padding-left: 140px;
+	}
+}
+/************
+16. 280px
+************/
+
+@media only screen and (max-width: 280px)
+{
+	.logo_container
+	{
+		padding-left: 110px;
+	}
+}
+/************
+17. herobox background
 ************/
 
 @media(max-width:992px){

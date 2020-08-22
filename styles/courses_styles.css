@@ -374,6 +374,31 @@ section
 	color: #8458B3;
 }
 
+/*********************************
+3.3 Header Side
+*********************************/
+
+.header_side
+{
+	width: 279px;
+	height: 100%;
+	background:#8458B3;
+}
+.header_side img
+{
+	width: 29px;
+	height: 29px;
+}
+.header_side span
+{
+	display: block;
+	position: relative;
+	font-size: 18px;
+	font-weight: 500;
+	color: #FFFFFF;
+	padding-left: 12px;
+}
+
 
 .dropbtn {
 	
@@ -412,31 +437,6 @@ section
   .dropdown:hover .dropdown-content {display: block;}
   
   .dropdown:hover .dropbtn {}
-
-/*********************************
-3.3 Header Side
-*********************************/
-
-.header_side
-{
-	width: 279px;
-	height: 100%;
-	background:#8458B3;
-}
-.header_side img
-{
-	width: 29px;
-	height: 29px;
-}
-.header_side span
-{
-	display: block;
-	position: relative;
-	font-size: 18px;
-	font-weight: 500;
-	color: #FFFFFF;
-	padding-left: 12px;
-}
 
 /*********************************
 3.4 Hamburger
@@ -780,10 +780,10 @@ section
 	display: block;
 	background: #f8f9fb;
 	border: none;
-	height:400px;
+	height: 400px;
 }
 .card-img-top
-{
+{   
 	border-top-left-radius: 0px;
     border-top-right-radius: 0px;
 }

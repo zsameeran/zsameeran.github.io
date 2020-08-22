@@ -32,3 +32,9 @@ text-align: center;
     margin-left: 35%;
     margin-top: 2%;
 }
+
+.sent-text{
+
+    margin-left: 15%;
+    display: none;
+}

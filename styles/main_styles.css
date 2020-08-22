@@ -513,7 +513,7 @@ section
 	-ms-transform: translateY(-50%);
 	-o-transform: translateY(-50%);
 	transform: translateY(-50%);
-	right: 20px;
+	left: 20px;
 	display: none;
 	cursor: pointer;
 }
@@ -525,7 +525,7 @@ section
 }
 .hamburger_container:hover i
 {
-	color: #ffb606;
+	color: #8458B3;
 }
 
 /*********************************
@@ -536,7 +536,7 @@ section
 {
 	position: fixed;
 	top: 0;
-	right: -50vw;
+	left: -50vw;
 	width: 50vw;
 	height: 100vh;
 	background: #FFFFFF;
@@ -553,7 +553,7 @@ section
 {
 	visibility: visible;
 	opacity: 1;
-	right: 0;
+	left: 0;
 }
 .menu
 {
@@ -603,7 +603,7 @@ section
 }
 .menu_item a:hover
 {
-	color: #ffb606;
+	color: #8458B3;
 }
 .menu_close_container
 {
@@ -650,7 +650,7 @@ section
 .menu_close_container:hover .menu_close,
 .menu_close_container:hover .menu_close::after
 {
-	background: #ffb606;
+	background: #8458B3;
 }
 
 /*********************************
@@ -684,7 +684,7 @@ section
 }
 .menu_social_item a i:hover
 {
-	color: #ffb606;
+	color: #8458B3;
 }
 .menu_container.active .menu_social_container
 {
@@ -696,35 +696,6 @@ section
 	opacity: 1;
 }
 
-/*********************************
-4.2 Menu copyright
-*********************************/
-
-.menu_copyright
-{
-	margin-top: 60px;
-	-webkit-transform: translateY(3.5rem);
-	-moz-transform: translateY(3.5rem);
-	-ms-transform: translateY(3.5rem);
-	-o-transform: translateY(3.5rem);
-	transform: translateY(3.5rem);
-	-webkit-transition: all 1000ms 1200ms ease;
-	-moz-transition: all 1000ms 1200ms ease;
-	-ms-transition: all 1000ms 1200ms ease;
-	-o-transition: all 1000ms 1200ms ease;
-	transition: all 1000ms 1200ms ease;
-	opacity: 0;
-	padding-left: 3px;
-}
-.menu_container.active .menu_copyright
-{
-	-webkit-transform: translateY(0px);
-	-moz-transform: translateY(0px);
-	-ms-transform: translateY(0px);
-	-o-transform: translateY(0px);
-	transform: translateY(0px);
-	opacity: 1;
-}
 
 /*********************************
 5. Home
@@ -1016,7 +987,7 @@ section
 	display: block;
 	background: #f8f9fb;
 	border: none;
-	height: 400px;
+	
 }
 .card-img-top
 {
@@ -1026,7 +997,7 @@ section
 .card-body
 {
 	padding-top: 0px;
-	padding-bottom: 0px;
+	padding-bottom: 20px;
 	padding-left: 15px;
 	padding-right: 15px;
 }
@@ -1053,47 +1024,120 @@ section
 	color: #a5a5a5;
 	margin-top: -12px;
 }
-/*.price_box
-{
+
+
+/*********************************
+9. dashboard
+*********************************/
+/* for demo purposes */
+
+.dashboard{
+  display: none;
+}
+.dashboard .container{
 	width: 100%;
-	height: 67px;
-	background: #eaebec;
-	margin-top: 41px;
-	padding-left: 35px;
+
+	
+	
 }
-.course_author_image
-{
-	width: 46px;
-	height: 46px;
-	border-radius: 50%;
-	overflow: hidden;
+.dashboard .btn{
+	border: 1px solid #000300;
+	color: #000300;
+
 }
-.course_author_name
-{
-	font-size: 14px;
-	font-weight: 500;
-	color: #1a1a1a;
-	padding-left: 20px;
-	margin-top: 7px;
+.dashboard .btn:hover{
+	border: none;
+	color: #fff;
+	background-color: #000300;
 }
-.course_author_name span
-{
-	color: #a5a5a5;
+
+
+
+#hellosir{
+  background-color: #D9BBDD;
+ 
+  margin-top: 35px;
 }
-.course_price
-{
-	width: 67px;
-	height: 67px;
-	background: #8458B3;
-	margin-left: auto;
+
+
+
+
+.allotmenthead{
+  color: #000300;
+  padding: 30px 0px 0px 0px;
+  margin-bottom: 0px;
 }
-.course_price span
-{
-	color: #FFFFFF;
-	font-size: 18px;
-	font-weight: 500;
-	margin-top: 7px;
+
+#cardmain{
+  margin:20px;
+  padding: 20px 25px;
+  font-size: 1.2rem;
+  color: #000300;
 }
+
+.card-block .btn-outline-primary {
+  width: 100%;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  bottom: 0;
+  left: 0;
+  position: absolute;
+}
+
+#hellosir .card {
+  margin: 20px 0;
+  background: #ffffff;
+
+}
+
+/* Flip Cards CSS */
+.card-container {
+  perspective: 700px;
+}
+.card-flip {
+  position: relative;
+  width: 100%;
+  transform-style: preserve-3d;
+  height: auto;
+  transition: all 0.5s ease-out;
+  background: white;
+  border: none;
+}
+
+.card-flip div {
+  backface-visibility: hidden;
+  transform-style: preserve-3d;
+  height: 100%;
+  width: 100%;
+  border: none;
+}
+.card-title{
+  color: #000300;
+  font-size: 25px;
+}
+
+.card-subtitle{
+  color: #000300;
+}
+.card-flip .front {
+  position: relative;
+  z-index: 1;
+}
+
+.card-flip .back {
+  position: relative;
+  z-index: 0;
+  transform: rotateY(-180deg);
+}
+
+.card-container:hover .card-flip {
+  transform: rotateY(180deg);
+}
+
+.back{
+  color: #000300;
+}
+
 
 /*********************************
 10. Register

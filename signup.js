@@ -64,6 +64,7 @@ function sign_up() {
   var email = document.getElementById("email_field");
   var pass = document.getElementById("password_field");
   var re_enter = document.getElementById("reenter_field");
+  var userPassword = btoa(pass.value);
 
   //checks whether the password matches and then creates account
   if (pass.value == re_enter.value) {
@@ -75,11 +76,12 @@ function sign_up() {
 
       user.sendEmailVerification().then(function () {
         // Email sent.
-        
+        sessionStorage.setItem('user_emailAddress',email.value);
+        sessionStorage.setItem('user_pass',userPassword);
         signup_spinner.classList.remove("spinner-border");
         $("#exampleModalLong").modal()
         
-
+       
       }).catch(function (error) {
         // An error happened.
         alert(error);
@@ -101,7 +103,7 @@ function sign_up() {
     var signup_spinner = document.getElementById("Signup-id");
     signup_spinner.classList.remove("spinner-border");
    // showAlert("Password doesnt match", true)
-    alert("password doesnt match")
+    alert("password doesnt match");
   }
 
 }

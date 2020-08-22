@@ -12,6 +12,8 @@
 	<link rel="stylesheet" type="text/css" href="plugins/OwlCarousel2-2.2.1/owl.carousel.css">
 	<link rel="stylesheet" type="text/css" href="plugins/OwlCarousel2-2.2.1/owl.theme.default.css">
 	<link rel="stylesheet" type="text/css" href="plugins/OwlCarousel2-2.2.1/animate.css">
+	<link rel="stylesheet"
+		href=https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.6/css/bootstrap.min.css>
 	<link rel="stylesheet" type="text/css" href="styles/main_styles.css">
 	<link rel="stylesheet" type="text/css" href="styles/responsive.css">
 	<script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-app.js"></script>
@@ -30,7 +32,7 @@
 			<div class="header_content d-flex flex-row align-items-center">
 				<!-- Logo -->
 				<div class="logo_container">
-					<div class="logo" onclick="index.html">
+					<div class="logo" onclick="location.href='soft_cards.html'" style="cursor: pointer;">
 						<img src="images/199.png" alt="">
 						<span>Skill buddy</span>
 					</div>
@@ -57,7 +59,7 @@
 						<div class="dropdown" id="user-drop" style="display: none;">
 							<button class="dropbtn" id="user-drop-name">ME</button>
 							<div class="dropdown-content">
-								<a href="#">My Profile</a>
+								<a href="userProfile.html">My Profile</a>
 								<a href="#" onclick="sign_out()">Sign-Out</a>
 
 							</div>
@@ -103,7 +105,7 @@
 						</ul>
 					</div>
 
-					<div class="menu_copyright menu_mm">Colorlib All rights reserved</div>
+
 				</div>
 
 			</div>
@@ -181,7 +183,7 @@
 				<div class="row">
 
 					<div class="col-lg-6 hero_box_col">
-						<div class="hero_box d-flex flex-row align-items-center justify-content-start">
+						<div class="hero_box d-flex flex-row align-items-center justify-content-start" onclick="location.href='signup.html'">
 							<img src="images/earth-globe.png" class="png" alt="">
 							<div class="hero_box_content">
 
@@ -193,7 +195,7 @@
 
 
 					<div class="col-lg-6 hero_box_col">
-						<div class="hero_box d-flex flex-row align-items-center justify-content-start">
+						<div class="hero_box d-flex flex-row align-items-center justify-content-start" onclick="location.href='signup.html'">
 							<img src="images/professor.png" class="png" id="reg-prof-image" alt="">
 							<div class="hero_box_content">
 
@@ -202,6 +204,57 @@
 						</div>
 					</div>
 
+				</div>
+			</div>
+		</div>
+	</div>
+	<!------Dashboard------>
+	<div class=" dashboard page_section">
+
+		<div class="container">
+			<div class="row">
+				<div class="col">
+					<div class="section_title text-center">
+						<h1>Dashboard</h1>
+					</div>
+				</div>
+			</div>
+
+			<div id="hellosir" class=" container-fluid">
+
+
+				<h3 class="allotmenthead">My Allotments</h3>
+				<hr>
+
+
+
+				<div class="row text-center">
+					<div class="col-md-4 card-container">
+						<div class="card card-flip">
+							<div class="front card-block">
+
+								<h4 class="card-title">Skill: Java</h4>
+								<br>
+								<h6 class="card-subtitle ">Mentor Alloted: Samruddhi Mandakhalikar</h6>
+								<br>
+
+
+							</div>
+							<div class="back card-block">
+								<p>
+									Goal: Classes in Oops
+									<br>
+									Preferred Language: English
+									<br>
+									Date of allotment: 13 Aug 2020
+									<br>
+									Last Date: 27 Aug 2020
+									<br>
+								</p>
+								<a href="#" class="btn btn-outline-primary">Cancel Allotment</a>
+							</div>
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -223,7 +276,7 @@
 
 				<!-- Popular Course Item -->
 				<div class="col-lg-4 course_box">
-					<div class="card">
+					<div class="card" onclick="location.href='soft_cards.html'" style="cursor: pointer;">
 						<img class="card-img-top" src="images/course_3.jpg" alt="https://unsplash.com/@kellybrito">
 						<div class="card-body text-center">
 							<div class="card-title"><a href="soft_cards.html">Soft skills</a></div>
@@ -235,7 +288,7 @@
 
 				<!-- Popular Course Item -->
 				<div class="col-lg-4 course_box">
-					<div class="card">
+					<div class="card" onclick="location.href='cs_cards.html'" style="cursor: pointer;">
 						<img class="card-img-top" src="images/course_2.jpg" alt="https://unsplash.com/@cikstefan">
 						<div class="card-body text-center">
 							<div class="card-title"><a href="cs_cards.html">Computer Science</a></div>
@@ -247,10 +300,10 @@
 
 				<!-- Popular Course Item -->
 				<div class="col-lg-4 course_box">
-					<div class="card">
+					<div class="card" onclick="location.href='science_cards.html'" style="cursor: pointer;">
 						<img class="card-img-top" src="images/course_1.jpg" alt="https://unsplash.com/@dsmacinnes">
 						<div class="card-body text-center">
-							<div class="card-title"><a href="courses.html">Science</a></div>
+							<div class="card-title"><a href="science_cards.html">Science</a></div>
 							<div class="card-text">Mathematics and logic, physics etc...</div>
 						</div>
 

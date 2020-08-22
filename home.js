@@ -27,47 +27,43 @@ var user_employmentStatus;
 var user_linkedin;
 var user_educational;
 var userDataItem = {};
-var user_data;
+var user_data = {};
 
 
-var test = sameeran;
+//var test = sameeran;
 // checks the changed state of the account 
 firebase.auth().onAuthStateChanged(function (user) {
 
   if (user) {
-    
-    
+
     userID = firebase.auth().currentUser.uid;
     emailVerified = user.emailVerified;
     User = user;
-    sessionStorage.setItem('user_emailAddress',user.email);
-    if(sessionStorage.getItem('localUserInfo') == null){
+
+    if (sessionStorage.getItem('localUserInfo') == null) {
       //CHECKS FOR GOOGLE SIGN IN
-    if (user.displayName == undefined) {
-     get_logind_user_data(userID);
-    }
-    else {
-      show_login(user);
-      set_userprofileImage();
-    }
+
+      if (user.displayName == undefined) {
+        get_logind_user_data(userID);
+      }
+      else {
+
+        show_login(user);
+        set_userprofileImage();
+      }
     }
 
-    else{
-      
-      user_data = sessionStorage.getItem('localUserInfo');      
+    else {
+      console.log("in else");
+      user_data = sessionStorage.getItem('localUserInfo');
       user_data = JSON.parse(user_data);
-      console.log(user_data);
-      console.log(user_data.user_firstName);
+
       show_login(user);
       set_userprofileImage();
     }
-    
 
     document.getElementById("reg-prof").innerHTML = "My Profile";
-
-
-
-
+    document.getElementById("reg-prof").setAttribute("href" ,"userProfile.html" )
     // email verification CHECKPOINT
     if (emailVerified == false) {
       //showAlert("Your Email or Phone Number is not verified.Click the link to Verify", true, true);
@@ -75,14 +71,14 @@ firebase.auth().onAuthStateChanged(function (user) {
     else {
       // showAlert("", false, false);
     }
-
   }
   else {
-
     document.getElementById("login-image").style.display = "none";
     // No user is signed in.
   }
 });
+
+
 
 ///////////////////////////////////////////////////////////////////////////////////////
 // FOR LOGIN PAGE
@@ -100,21 +96,19 @@ function login() {
         // if a user forgets to sign out.
         // ...
         //alert("persistance oned");
-        // New sign-in will be persisted with session persistence.
-        
+        // New sign-in will be persisted with session persistence.       
       })
       .catch(function (error) {
         // Handle Errors here.
-        
+
         var errorCode = error.code;
         var errorMessage = error.message;
-       // alert(errorMessage+"peraistace vala");
+        // alert(errorMessage+"peraistace vala");
       });
   }
   firebase.auth().signInWithEmailAndPassword(email_field, pass_field).then(function (result) {
+
     window.location.href = "index.html";
-
-
 
   })
     .catch(function (error) {
@@ -139,7 +133,7 @@ function google_sign() {
     var user = result.user;
 
     // showAlert("Sign-In Successfull", true, false);
-    window.location.href = "index.html";
+    window.location.href = "fill_profile.html";
 
   }).catch(function (error) {
     // Handle Errors here.
@@ -162,7 +156,9 @@ function sign_out() {
 
   firebase.auth().signOut().then(function () {
     // Sign-out successful.
+    sessionStorage.clear();
     window.location.href = "index.html"
+
   }).catch(function (error) {
     // An error happened.
     alert(error);
@@ -179,6 +175,8 @@ var iti = intlTelInput(input);
 /////////////////////////////////////////////////////////////////
 //profile form function
 function get_info() {
+  var signup_spinner = document.getElementById("submit-id");
+  signup_spinner.className += "spinner-border spinner-border-sm";
 
   var countryData = iti.getSelectedCountryData();
   var first_name = document.getElementById("f_name").value.trim();
@@ -187,23 +185,25 @@ function get_info() {
   var dob_month = document.getElementById("month").value;
   if (dob_day == "" || dob_month == "") {
     alert("enter date properly");
+    signup_spinner.classList.remove("spinner-border");
     return;
   }
   var dob_year = document.getElementById("year").value;
-  var user_age = get_age(dob_day, dob_month, dob_year);
+  var user_dob = get_dob(dob_day, dob_month, dob_year);
   var phone_number = "+" + countryData.dialCode + document.getElementById("phone").value;
   var user_linkedin = document.getElementById("link_input").value.trim();
   var user_educational = document.getElementById("edu_detail_drop").value;
   var user_field_major = document.getElementById("field_input").value.trim();
   var user_employment_status = document.getElementById("employment_input").value;
-  
+
   if (first_name != null && last_name != null && phone_number != null && user_linkedin != null
     && user_educational != "nothing" && user_employment_status != "nothing" && user_field_major != null && user_gender != undefined) {
     //update these info to firebase
     upload_info(first_name, last_name, phone_number, user_linkedin, user_educational
-      , user_field_major, user_employment_status);
+      , user_field_major, user_employment_status, user_dob, signup_spinner);
   }
   else {
+    signup_spinner.classList.remove("spinner-border");
     alert("enter all fields");
   }
 
@@ -211,18 +211,11 @@ function get_info() {
 
 
 
-function get_age(dob_day, dob_month, dob_year) {
+function get_dob(dob_day, dob_month, dob_year) {
 
-  var date = new Date();
-  var current_day = date.getDate();
-  var current_month = date.getMonth() + 1;
-  var current_year = date.getFullYear();
+  
 
-  var user_age_year = Math.abs(current_year - dob_year);
-  var user_age_month = Math.abs(current_month - dob_month);
-  var user_age_day = Math.abs(current_day - dob_day);
-
-  return user_age_day + "/" + user_age_month + "/" + user_age_year;
+  return dob_day + "/" + dob_month + "/" + dob_year;
 
 }
 
@@ -235,12 +228,13 @@ function chooseFile(e) {
 }
 
 function upload_info(first_name, last_name, phone_number, user_linkedin, user_educational
-  , user_field_major, user_employment_status) {
+  , user_field_major, user_employment_status, user_dob, signup_spinner) {
+
   var Database = firebase.database();
   var database = Database.ref().child("User");
   userID = firebase.auth().currentUser.uid;
   var userRef = database.child(userID);
-  var userData = {
+  userDataItem = {
     "firstName": first_name,
     "lastName": last_name,
     "Gender": user_gender,
@@ -249,21 +243,29 @@ function upload_info(first_name, last_name, phone_number, user_linkedin, user_ed
     "educational": user_educational,
     "fieldMajor": user_field_major,
     "employmentStatus": user_employment_status,
+    "dob": user_dob,
   };
 
   storage.ref('user/' + userID + '/profile').put(file).then(function () {
-    alert("image uploaded");
+    //alert("image uploaded");
 
-    userRef.set(userData, function (error) {
+    userRef.set(userDataItem, function (error) {
       if (error) {
         var errorCode = error.code;
         var errorMessage = error.message;
-        alert(errorMessage);
+        // alert(errorMessage);
       }
       else {
         // showAlert("Profile Added successfully!", true, false);
-        window.location.href = "index.html";
+        sessionStorage.setItem('localUserInfo', JSON.stringify(userDataItem));
+
+        signup_spinner.classList.remove("spinner-border");
+  
+      
+          window.location.href = "phoneVerification.html";
+        
       }
+
     })
 
     //showAlert("image uploaded", true, false);
@@ -272,7 +274,7 @@ function upload_info(first_name, last_name, phone_number, user_linkedin, user_ed
     alert(error.message);
 
   })
-  
+
 }
 
 
@@ -298,27 +300,27 @@ function getGender(gvalue) {
 
 
 function get_logind_user_data(userID) {
-  
   //user's DISPLAYING FIRSTNAME CHECKPOINT 1
   Database.ref('User/' + userID).once('value').then(function (snapshot) {
     if (snapshot.exists()) {
       Database.ref('User/' + userID).once('value').then(function (snapshot) {
-        userDataItem["user_firstName"] = snapshot.val().firstName;
-        userDataItem["user_gender"] = snapshot.val().Gender;
-        userDataItem["user_lastName"] = snapshot.val().lastName;
-        userDataItem["user_phoneNumber"] = snapshot.val().phoneNumber;
-        userDataItem["user_educational"] = snapshot.val().educational;
-        userDataItem["user_employmentStatus"] = snapshot.val().employmentStatus;
-        userDataItem["user_fieldMajor"] = snapshot.val().fieldMajor;
-        userDataItem["user_linkedin"] = snapshot.val().linkedin;
-       
-        sessionStorage.setItem('localUserInfo',JSON.stringify(userDataItem));
+        userDataItem["firstName"] = snapshot.val().firstName;
+        userDataItem["gender"] = snapshot.val().Gender;
+        userDataItem["lastName"] = snapshot.val().lastName;
+        userDataItem["phoneNumber"] = snapshot.val().phoneNumber;
+        userDataItem["educational"] = snapshot.val().educational;
+        userDataItem["employmentStatus"] = snapshot.val().employmentStatus;
+        userDataItem["fieldMajor"] = snapshot.val().fieldMajor;
+        userDataItem["linkedin"] = snapshot.val().linkedin;
+        
+
+        sessionStorage.setItem('localUserInfo', JSON.stringify(userDataItem));
 
         firebase.storage().ref('user/' + userID + '/profile').getDownloadURL().then(imgUrl => {
-          
-          userDataItem["user_profileImage"] = imgUrl;
-         
-          sessionStorage.setItem('localUserInfo',JSON.stringify(userDataItem));
+
+          userDataItem["profileImage"] = imgUrl;
+
+          sessionStorage.setItem('localUserInfo', JSON.stringify(userDataItem));
           show_login(User);
           set_userprofileImage();
           //console.log(user_data);
@@ -344,14 +346,14 @@ function get_logind_user_data(userID) {
 
 
 function show_login(User) {
-  
+
   //DISPLAYING NAMES OF USER AND OTHER STUFFS
   document.getElementById("home-login").style.display = "none";
   document.getElementById("user-drop").style.display = "block";
-  
+  console.log(user_data.firstName);
   if (User.displayName == null) {
-    if (user_data.user_firstName != undefined) {
-      document.getElementById("user-drop-name").innerHTML = user_data.user_firstName;
+    if (user_data['firstName'] != undefined) {
+      document.getElementById("user-drop-name").innerHTML = user_data.firstName;
     }
   }
   else {
@@ -363,11 +365,11 @@ function show_login(User) {
 
 
 function set_userprofileImage() {
-
+  console.log(user_data);
   //DIsplaying user profile iMAGE IF EXISTS OR AVATAR ACCORDING TO GENDER
   if (User.photoURL == null) {
 
-    if (user_data.user_profileImage == null) {
+    if (user_data['profileImage'] == undefined) {
       if (user_gender == "female") {
         document.getElementById("login-image").src = "images/avtar_female.png";
       }
@@ -378,7 +380,7 @@ function set_userprofileImage() {
     }
     else {
 
-      document.getElementById("login-image").src = user_data.user_profileImage;
+      document.getElementById("login-image").src = user_data.profileImage;
     }
   }
   else {

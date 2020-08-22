@@ -36,6 +36,8 @@ ul
 {
     list-style: none;
     margin-bottom: 0px;
+    font-size: 1.2rem;
+    font-family: 'Roboto', sans-serif;
 }
 p
 {
@@ -945,14 +947,13 @@ text-align: left;
 
 
 #hello{
-  margin-top: 200px;
+  margin-top: 100px;
 }
 .list-heading{
   font-size: 1.2rem;
 }
 .appli-list{
-  margin-left: 2.5%;
-  margin-top: 2%;
+ 
 }
 .appli-list li:before {
   content:"\2713\0020";
@@ -990,8 +991,10 @@ margin-left: 50%;
 margin-top: 4%;
 }
 
-
-
+.highest-degree-modal{
+  margin-left: -3%;
+  
+}
 
 
 

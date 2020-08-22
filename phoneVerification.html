@@ -27,7 +27,7 @@
         <div class="header_content d-flex flex-row align-items-center">
             <!-- Logo -->
             <div class="logo_container">
-                <div class="logo">
+                <div class="logo" onclick="location.href='index.html'" style="cursor: pointer;">
                     <img src="199.png" alt="">
                     <span>Skill buddy</span>
                 </div>
@@ -107,6 +107,7 @@
         <div id="recaptcha-container" class="recap"></div>
         <button type="button" class="btn mybutton btn-secondary" onclick="sendOtp()" >Send-OTP</button>
         <div class="input-code">
+        <div class="sent-text" id="msg-sent-text" >Message sent to your Phone</div>
             <input type="text" class="form-control" id="verification-code" >
         </div>
         <button type="button" class="btn btn-secondary verify-btn" onclick="verify_otp()">Verify</button>
