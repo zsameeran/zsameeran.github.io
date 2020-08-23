@@ -77,7 +77,7 @@
 ************/
 
 @media only screen and (max-width: 1280px)
-{    
+{
 	.header
 	{
 		width: 90%;
@@ -148,9 +148,9 @@
 
 @media only screen and (max-width: 991px)
 
-{    .header{
+{   .header{
 	  height: 85px;
-	  top:25px;
+		top:25px;
 	}
 	.main_nav_container
 	{
@@ -259,6 +259,8 @@
 	
 }
 
+
+
 /************
 9. 768px
 ************/
@@ -268,6 +270,7 @@
 	.logo_container{
 	padding-left: 400px;
 }
+}
 
 /************
 10. 767px
@@ -275,16 +278,15 @@
 
 @media only screen and (max-width: 767px)
 
-{   .header
+{   .logo_container{
+	padding-left: 350px;
+}
+	.header
 	{
 		height: 74px;
 		top:25px;
 	}
-	.logo_container 
-	{
-       padding-left: 350px;
-     }
-
+	
 	.menu_container
 	{
 		right: -100vw;
@@ -300,6 +302,7 @@
 		margin-top: 15px;
 	}
 }
+
 /************
 10. 640px
 ************/
@@ -328,10 +331,7 @@
 {
 	h1{font-size: 24px;}
 	p{font-size:13px;}
-	.header
-	{
-		height: 74px;
-	}
+	
 	.logo_container
 	{
 		padding-left: 300px;
@@ -346,8 +346,9 @@
 	}
 	.hamburger_container
 	{
-		right: 5px;
+		left: 5px;
 	}
+	
 	.menu
 	{
 		top: 70px;
@@ -494,7 +495,7 @@
 	}
 	.logo_container
 	{
-		padding-left: 250px;
+		padding-left: 220px;
 	}
 	.hero_slide_content h1
 	{
@@ -546,6 +547,10 @@
 		padding-left: 170px;
 	}
 }
+
+
+
+
 /************
 15. 320px
 ************/
@@ -558,7 +563,7 @@
 	}
 }
 /************
-16. 280px
+15. 280px
 ************/
 
 @media only screen and (max-width: 280px)
@@ -569,7 +574,7 @@
 	}
 }
 /************
-17. herobox background
+16. herobox background
 ************/
 
 @media(max-width:992px){
