@@ -408,3 +408,18 @@ function confirmMentor(){
   );
 
 }
+
+///////////////////////////////////////////////////////////////////
+//signout fucnction
+function sign_out() {
+
+  firebase.auth().signOut().then(function () {
+    // Sign-out successful.
+    sessionStorage.clear();
+    window.location.href = "index.html"
+
+  }).catch(function (error) {
+    // An error happened.
+    alert(error);
+  });
+}

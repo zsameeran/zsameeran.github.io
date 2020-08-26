@@ -1,20 +1,21 @@
-<!DOCTYPE html>
+
 <html lang="en">
 
 <head>
-	<title>Sb&nbsp|&nbsp videography</title>
+	<title>Sb-aboutUs </title>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="description" content="Course Project">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" type="text/css" href="styles/bootstrap4/bootstrap.min.css">
 	<link href="plugins/fontawesome-free-5.0.1/css/fontawesome-all.css" rel="stylesheet" type="text/css">
-	<link rel="stylesheet" type="text/css" href="styles/elex_cards.css">
-	<link rel="stylesheet" type="text/css" href="styles/elex_responsive.css">
+	<link rel="stylesheet" type="text/css" href="aboutUs.css">
+	<link rel="stylesheet" type="text/css" href="cards_responsive.css">
 	<script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-app.js"></script>
 	<script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-auth.js"></script>
 	<script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-storage.js"></script>
 	<script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-database.js"></script>
+
 </head>
 
 <body>
@@ -25,10 +26,14 @@
 
 		<header class="header d-flex flex-row">
 			<div class="header_content d-flex flex-row align-items-center">
+				<!-- Hamburger -->
+				<div class="hamburger_container">
+					<i class="fas fa-bars trans_200"></i>
+				</div>
 				<!-- Logo -->
 				<div class="logo_container">
 					<div class="logo">
-						<img src="images/199.png" alt="">
+						<img src="199.png" alt="">
 						<span>Skill buddy</span>
 					</div>
 				</div>
@@ -48,24 +53,22 @@
 			<div class="header_side d-flex flex-row justify-content-center align-items-center">
 
 				<span><img id="login-image" src=""
-					style="border-radius: 50%; height: 40px; width: 40px; margin-right: 10px;"></img>
-				<div class="dropdown">
-					<a id="home-login" href="login.html">Login</a>
-					<div class="dropdown" id="user-drop" style="display: none;">
-						<button class="dropbtn" id="user-drop-name">ME</button>
-						<div class="dropdown-content">
-							<a href="#">My Profile</a>
-							<a href="#" onclick="sign_out()">Sign-Out</a>
+						style="border-radius: 50%; height: 40px; width: 40px; margin-right: 10px;"></img>
+					<div class="dropdown">
+						<a id="home-login" href="login.html">Login</a>
+						<div class="dropdown" id="user-drop" style="display: none;">
+							<button class="dropbtn" id="user-drop-name">ME</button>
+							<div class="dropdown-content">
+								<a href="userProfile.html">My Profile</a>
+								<a  onclick="sign_out()">Sign-Out</a>
 
+							</div>
 						</div>
 					</div>
-				</div></span>
+				</span>
 			</div>
 
-			<!-- Hamburger -->
-			<div class="hamburger_container">
-				<i class="fas fa-bars trans_200"></i>
-			</div>
+
 
 		</header>
 
@@ -106,77 +109,52 @@
 			</div>
 
 		</div>
-		<!-- Home -->
-
-		<div class="home">
-			<div class="home_background_container prlx_parent">
-				<div class="home_background prlx" style="background-image:url(images/background3.jfif)"></div>
-			</div>
-			<div class="home_content">
-				<h1>Videography</h1>
-			</div>
-		</div>
-
-		<!-- Teachers -->
-
-		<div class="teachers page_section">
-			<div class="container">
-				<div class="row">
-
-					<!-- Teacher -->
-					<div class="col-lg-4 teacher">
-						<div class="card" >
-							<div class="card_img">
-
-								<img class="card-img-top trans_200 public_img" src="images/cinematography.jpg">
-							</div>
-							<div class="card-body text-center">
-								<div class="card-title"><a >Cinematography</a></div>
-								<div class="card-text">Coming Soon...</div>
-
-							</div>
-						</div>
+		<div class="bg-light">
+			<div class="container py-5">
+				<div class="row h-100 align-items-center py-5">
+					<div class="col-lg-6">
+						<h1 class="display-4">Skill Buddy</h1>
+						<p class="lead text-muted mb-0"><br></p>
+						<p class="lead text-muted">Connecting &bull; Helping &bull; Nurturing</p>
 					</div>
-
-					<!-- Teacher -->
-					<div class="col-lg-4 teacher">
-						<div class="card"
-							>
-							<div class="card_img">
-
-								<img class="card-img-top trans_200 resume_img" src="images/Broadcasting.jpg">
-							</div>
-							<div class="card-body text-center">
-								<div class="card-title"><a >Broadcasting</div>
-								<div class="card-text">Coming Soon...</div>
-
-							</div>
-						</div>
-					</div>
-
-					<!-- Teacher -->
-					<div class="col-lg-4 teacher">
-						<div class="card" >
-							<div class="card_img">
-
-								<img class="card-img-top trans_200 time_img" src="images/editing.jpg">
-							</div>
-							<div class="card-body text-center">
-								<div class="card-title"><a >Video editing</a></div>
-								<div class="card-text">Coming Soon...</div>
-
-							</div>
-						</div>
-					</div>
-
-
-
-
-
-
+					<div class="col-lg-6 d-none d-lg-block"><img
+							src="https://res.cloudinary.com/mhmd/image/upload/v1556834136/illus_kftyh4.png" alt=""
+							class="img-fluid"></div>
 				</div>
 			</div>
 		</div>
+
+		<div class="bg-white py-5">
+			<div class="container py-5">
+				<div class="row align-items-center mb-5">
+					<div class="col-lg-6 order-2 order-lg-1">
+						<h2 id="wwa" class="font-weight-light">Who We Are</h2>
+						<p id="wwatxt" class="font-italic  mb-4">Skill Buddy. We connect inquisitive people with the
+							experts in their field of interest for One-to-one mentoring. We aim to create a global
+							community of knowledge enthusiasts and provide them with a FREE online platform to share
+							their knowledge and grow together.</p>
+					</div>
+					<div class="col-lg-5 px-5 mx-auto order-1 order-lg-2"><img
+							src="https://res.cloudinary.com/mhmd/image/upload/v1556834139/img-1_e25nvh.jpg" alt=""
+							class="img-fluid mb-4 mb-lg-0"></div>
+				</div>
+				<div class="row align-items-center">
+					<div class="col-lg-5 px-5 mx-auto"><img
+							src="https://res.cloudinary.com/mhmd/image/upload/v1556834136/img-2_vdgqgn.jpg" alt=""
+							class="img-fluid mb-4 mb-lg-0"></div>
+					<div class="col-lg-6"><i class="fa fa-leaf fa-2x mb-3 text-primary"></i>
+						<h2 id="wwd" class="font-weight-light">What We Do</h2>
+						<p id="wwdtxt" class="font-italic mb-4"> We create a platform for One-to-one mentoring and
+							knowledge sharing. We connect with people from different knowledge background; adroit at
+							various skills. We connect them with the knowledge seekers. Thus they can share their
+							knowledge with the newcomers in the field.</p>
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+
 
 
 		<!-- Footer -->
@@ -226,7 +204,7 @@
 							<!-- Logo -->
 							<div class="logo_container">
 								<div class="logo">
-									<img src="images/199.png" alt="">
+									<img src="199.png" alt="">
 									<span>skill buddy</span>
 								</div>
 							</div>
@@ -327,7 +305,7 @@
 	<script src="plugins/scrollTo/jquery.scrollTo.min.js"></script>
 	<script src="plugins/easing/easing.js"></script>
 	<script src="js/teachers_custom.js"></script>
-	<script src="skills.js"></script>
+	<script src="home.js"></script>
 
 </body>
 
