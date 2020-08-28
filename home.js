@@ -28,6 +28,7 @@ var user_linkedin;
 var user_educational;
 var userDataItem = {};
 var user_data = {};
+var stackCounter = 0;
 
 
 //var test = sameeran;
@@ -35,6 +36,8 @@ var user_data = {};
 firebase.auth().onAuthStateChanged(function (user) {
 
   if (user) {
+
+
 
     userID = firebase.auth().currentUser.uid;
     emailVerified = user.emailVerified;
@@ -63,13 +66,17 @@ firebase.auth().onAuthStateChanged(function (user) {
     }
 
     document.getElementById("reg-prof").innerHTML = "My Profile";
-    document.getElementById("reg-prof").setAttribute("href" ,"userProfile.html" )
+    document.getElementById("reg-prof").setAttribute("href", "userProfile.html")
     // email verification CHECKPOINT
     if (emailVerified == false) {
+
+      // Get the snackbar DIV
+      showToast("EMAIL NOT VERIFIED PLEASE VERIFY", null);
       //showAlert("Your Email or Phone Number is not verified.Click the link to Verify", true, true);
     }
     else {
       // showAlert("", false, false);
+
     }
   }
   else {
@@ -213,7 +220,7 @@ function get_info() {
 
 function get_dob(dob_day, dob_month, dob_year) {
 
-  
+
 
   return dob_day + "/" + dob_month + "/" + dob_year;
 
@@ -260,10 +267,10 @@ function upload_info(first_name, last_name, phone_number, user_linkedin, user_ed
         sessionStorage.setItem('localUserInfo', JSON.stringify(userDataItem));
 
         signup_spinner.classList.remove("spinner-border");
-  
-      
-          window.location.href = "phoneVerification.html";
-        
+
+
+        window.location.href = "phoneVerification.html";
+
       }
 
     })
@@ -312,7 +319,7 @@ function get_logind_user_data(userID) {
         userDataItem["employmentStatus"] = snapshot.val().employmentStatus;
         userDataItem["fieldMajor"] = snapshot.val().fieldMajor;
         userDataItem["linkedin"] = snapshot.val().linkedin;
-        
+
 
         sessionStorage.setItem('localUserInfo', JSON.stringify(userDataItem));
 
@@ -350,10 +357,13 @@ function show_login(User) {
   //DISPLAYING NAMES OF USER AND OTHER STUFFS
   document.getElementById("home-login").style.display = "none";
   document.getElementById("user-drop").style.display = "block";
-  console.log(user_data.firstName);
+
   if (User.displayName == null) {
     if (user_data['firstName'] != undefined) {
       document.getElementById("user-drop-name").innerHTML = user_data.firstName;
+    }
+    else {
+      showToast("PLEASE FILL YOUR PROFILE.CLICK HERE TO FILL", "fill_profile.html")
     }
   }
   else {
@@ -422,4 +432,44 @@ function password_reset() {
 
 
 
+function showToast(message, link) {
+  var x = document.getElementById("snackbar");
+  console.log("1");
+  if (stackCounter == 0) {
+    console.log("2");
+    x.innerHTML = message;
+    if (link == null) {
+      document.getElementById("snackbar-link").href = "javascript: void(0)";
+      x.className = "show";
+      stackCounter = 1;
+    }
+    else {
+      document.getElementById("snackbar-link").href = link;
+      x.className = "show";
+      stackCounter = 1;
+    }
+    // Add the "show" class to DIV
+    // After 3 seconds, remove the show class from DIV
+    setTimeout(function () { x.className = x.className.replace("show", ""); stackCounter = 0; }, 10000);
+  }
+  else if (stackCounter == 1) {
+    console.log("3");
+    x.innerHTML = message;
+    if (link == null) {
+      document.getElementById("snackbar-link").href = "javascript: void(0)";
+      x.className = "show";
+      x.style.bottom = "60px";
+      stackCounter = 2;
+    }
+    else {
+      document.getElementById("snackbar-link").href = link;
+      x.className = "show";
+      x.style.bottom  = "80px";
+
+      stackCounter = 2;
+    }
+    setTimeout(function () { x.className = x.className.replace("show", ""); stackCounter = 0; }, 10000);
+  }
+
+}
 
