@@ -12,12 +12,13 @@ var firebaseConfig = {
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
 // checks the changed state of the account 
+var stackCounter = 0;
 
 
 firebase.auth().onAuthStateChanged(function (user) {
   if (user) {
 
-    showAlert("user already signed in sign out first and then Sign-up", true, false);
+    showAlert("user already signed in. Sign out first and then Sign-up", "orange");
     // User is signed in.
 
     if (user.displayName == null) {
@@ -57,10 +58,10 @@ firebase.auth().onAuthStateChanged(function (user) {
 /* SIgn up function*/
 
 function sign_up() {
- 
+
   var signup_spinner = document.getElementById("Signup-id");
-  signup_spinner.className += "spinner-border spinner-border-sm" ;
-  
+  signup_spinner.className += "spinner-border spinner-border-sm";
+
   var email = document.getElementById("email_field");
   var pass = document.getElementById("password_field");
   var re_enter = document.getElementById("reenter_field");
@@ -76,24 +77,24 @@ function sign_up() {
 
       user.sendEmailVerification().then(function () {
         // Email sent.
-        sessionStorage.setItem('user_emailAddress',email.value);
-        sessionStorage.setItem('user_pass',userPassword);
+        sessionStorage.setItem('user_emailAddress', email.value);
+        sessionStorage.setItem('user_pass', userPassword);
         signup_spinner.classList.remove("spinner-border");
-        $("#exampleModalLong").modal()
         
+        showToast("WE HAVE SENT YOU A VERIFICATION EMAIL.PLEASE VERIFY YOUR EMAIL", null);
        
       }).catch(function (error) {
         // An error happened.
-        alert(error);
+        showAlert(error.message , "red");
       });
 
     }).catch(function (error) {
       // Handle Errors here.
-      
+
       signup_spinner.classList.remove("spinner-border");
       var errorCode = error.code;
       var errorMessage = error.message;
-      alert(errorMessage);
+      showAlert(errorMessage ,"red");
 
       // ...
     });
@@ -102,8 +103,8 @@ function sign_up() {
   else {
     var signup_spinner = document.getElementById("Signup-id");
     signup_spinner.classList.remove("spinner-border");
-   // showAlert("Password doesnt match", true)
-    alert("password doesnt match");
+   
+    showAlert("password doesnt match","orange");
   }
 
 }
@@ -114,8 +115,57 @@ function sign_up() {
 
 
 
-///////////////////////////////////////////////////////////////////
-//email confirmation function
-function confirm() {
-  window.location.href = "fill_profile.html";
+
+
+//////////////////////////////////////////////////////////////////////
+//toast function
+
+function showToast(message, link) {
+
+
+  if (stackCounter == 0) {
+    var x = document.getElementById("snackbar");
+    x.innerHTML = message;
+    if (link == null) {
+      document.getElementById("snackbar-link").href = "javascript: void(0)";
+      x.className = "show";
+      stackCounter = 1;
+    }
+    else {
+      document.getElementById("snackbar-link").href = link;
+      x.className = "show";
+      stackCounter = 1;
+    }
+    // Add the "show" class to DIV
+    // After 3 seconds, remove the show class from DIV
+    setTimeout(function () { x.className = x.className.replace("show", ""); stackCounter = 0; window.location.href = "fill_profile.html"; }, 5000);
+  }
+  else if (stackCounter == 1) {
+    var y = document.getElementById("snackbar1");
+
+    y.innerHTML = message;
+    if (link == null) {
+      document.getElementById("snackbar-link1").href = "javascript: void(0)";
+      y.className = "show";
+      stackCounter = 2;
+    }
+    else {
+      document.getElementById("snackbar-link1").href = link;
+      y.className = "show";
+      stackCounter = 2;
+    }
+    setTimeout(function () { y.className = y.className.replace("show", ""); stackCounter = 0; }, 5000);
+  }
+
+}
+
+function showAlert(message , backColor){
+  customAlert = document.getElementById("snackbar-alert");
+  customAlert.innerHTML = message;
+  customAlert.className = "show";
+  if(backColor!=null){
+  customAlert.style.backgroundColor = backColor;
+  }
+  setTimeout(function () { y.className = y.className.replace("show", ""); stackCounter = 0; }, 3000);
+
 }
