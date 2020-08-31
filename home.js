@@ -29,6 +29,22 @@ var user_educational;
 var userDataItem = {};
 var user_data = {};
 var stackCounter = 0;
+var currentPageName = location.href.split("/").slice(-1);
+
+$("#profileImage").click(function(e) {
+  $("#imageUpload").click();
+});
+
+function fasterPreview( uploader ) {
+  if ( uploader.files && uploader.files[0] ){
+        $('#profileImage').attr('src', 
+           window.URL.createObjectURL(uploader.files[0]) );
+  }
+}
+
+$("#imageUpload").change(function(){
+  fasterPreview( this );
+});
 
 
 //var test = sameeran;
@@ -36,8 +52,6 @@ var stackCounter = 0;
 firebase.auth().onAuthStateChanged(function (user) {
 
   if (user) {
-
-
 
     userID = firebase.auth().currentUser.uid;
     emailVerified = user.emailVerified;
@@ -50,7 +64,6 @@ firebase.auth().onAuthStateChanged(function (user) {
         get_logind_user_data(userID);
       }
       else {
-
         show_login(user);
         set_userprofileImage();
       }
@@ -58,22 +71,21 @@ firebase.auth().onAuthStateChanged(function (user) {
 
     else {
       console.log("in else");
-      user_data = sessionStorage.getItem('localUserInfo');
-      user_data = JSON.parse(user_data);
+      userDataItem = sessionStorage.getItem('localUserInfo');
+      userDataItem = JSON.parse(userDataItem);
 
       show_login(user);
       set_userprofileImage();
     }
 
     document.getElementById("reg-prof").innerHTML = "My Profile";
-    document.getElementById("reg-prof").setAttribute("href", "userProfile.html")
+    document.getElementById("reg-prof").setAttribute("href", "userProfile.html");
+    document.getElementById("reg-div").onclick = function(){ window.location.href = 'userProfile.html'};
+
     // email verification CHECKPOINT
     if (emailVerified == false) {
-
       // Get the snackbar DIV
       showToast("EMAIL NOT VERIFIED YET, PLEASE VERIFY", null);
-      
-    
     }
     else {
     
@@ -183,7 +195,7 @@ var iti = intlTelInput(input);
 
 /////////////////////////////////////////////////////////////////
 //profile form function
-function get_info() {
+function getInfo() {
   var signup_spinner = document.getElementById("submit-id");
   signup_spinner.className += "spinner-border spinner-border-sm";
 
@@ -195,6 +207,7 @@ function get_info() {
   if (dob_day == "" || dob_month == "") {
     showAlert("enter date properly" ,"red");
     signup_spinner.classList.remove("spinner-border");
+    signup_spinner.classList.remove("spinner-border-sm");
     return;
   }
   var dob_year = document.getElementById("year").value;
@@ -213,6 +226,7 @@ function get_info() {
   }
   else {
     signup_spinner.classList.remove("spinner-border");
+    signup_spinner.classList.remove("spinner-border-sm");
     showAlert("Enter all fields" , "red");
   }
 
@@ -233,7 +247,7 @@ var file = {}
 function chooseFile(e) {
 
   file = e.target.files[0];
-
+  
 }
 
 function upload_info(first_name, last_name, phone_number, user_linkedin, user_educational
@@ -262,13 +276,14 @@ function upload_info(first_name, last_name, phone_number, user_linkedin, user_ed
       if (error) {
         var errorCode = error.code;
         var errorMessage = error.message;
-         showAlert(errorMessage);
+         showAlert(errorMessage , "red");
       }
       else {
          showAlert("Profile Added successfully!", "green");
-        sessionStorage.setItem('localUserInfo', JSON.stringify(userDataItem));
+        //sessionStorage.setItem('localUserInfo', JSON.stringify(userDataItem));
 
         signup_spinner.classList.remove("spinner-border");
+        signup_spinner.classList.remove("spinner-border-sm");
 
 
         window.location.href = "phoneVerification.html";
@@ -297,7 +312,9 @@ function getGender(gvalue) {
 function get_logind_user_data(userID) {
   //user's DISPLAYING FIRSTNAME CHECKPOINT 1
   Database.ref('User/' + userID).once('value').then(function (snapshot) {
+
     if (snapshot.exists()) {
+    
       Database.ref('User/' + userID).once('value').then(function (snapshot) {
         userDataItem["firstName"] = snapshot.val().firstName;
         userDataItem["gender"] = snapshot.val().Gender;
@@ -308,16 +325,18 @@ function get_logind_user_data(userID) {
         userDataItem["fieldMajor"] = snapshot.val().fieldMajor;
         userDataItem["linkedin"] = snapshot.val().linkedin;
 
+        //storing data in session storage for faster access in future
 
         sessionStorage.setItem('localUserInfo', JSON.stringify(userDataItem));
 
         firebase.storage().ref('user/' + userID + '/profile').getDownloadURL().then(imgUrl => {
-
+          console.log("profileimg");
           userDataItem["profileImage"] = imgUrl;
-
+          console.log(userDataItem.profileImage);
           sessionStorage.setItem('localUserInfo', JSON.stringify(userDataItem));
           show_login(User);
           set_userprofileImage();
+          
           //console.log(user_data);
 
         }).catch(function (error) {
@@ -347,11 +366,12 @@ function show_login(User) {
   document.getElementById("user-drop").style.display = "block";
 
   if (User.displayName == null) {
-    if (user_data['firstName'] != undefined) {
-      document.getElementById("user-drop-name").innerHTML = user_data.firstName;
+    if (userDataItem['firstName'] != undefined) {
+      document.getElementById("user-drop-name").innerHTML = userDataItem.firstName;
     }
     else {
-      showToast("PLEASE FILL YOUR PROFILE.CLICK HERE TO FILL", "fill_profile.html")
+      if(currentPageName != "fill_profile.html"){
+      showToast("PLEASE FILL YOUR PROFILE.CLICK HERE TO FILL", "fill_profile.html")}
     }
   }
   else {
@@ -363,12 +383,14 @@ function show_login(User) {
 
 
 function set_userprofileImage() {
-  console.log(user_data);
+  
+  console.log(userDataItem.profileImage);
+
   //DIsplaying user profile iMAGE IF EXISTS OR AVATAR ACCORDING TO GENDER
   if (User.photoURL == null) {
 
-    if (user_data['profileImage'] == undefined) {
-      if (user_gender == "female") {
+    if (userDataItem['profileImage'] == undefined) {
+      if (userDataItem.gender == "female") {
         document.getElementById("login-image").src = "images/avtar_female.png";
       }
 
@@ -378,7 +400,7 @@ function set_userprofileImage() {
     }
     else {
 
-      document.getElementById("login-image").src = user_data.profileImage;
+      document.getElementById("login-image").src = userDataItem.profileImage;
     }
   }
   else {
@@ -386,8 +408,9 @@ function set_userprofileImage() {
     document.getElementById("login-image").src = User.photoURL;
   }
 
-  if (user_gender == "female") {
+  if (userDataItem.gender == "female") {
     document.getElementById("reg-prof-image").src = "images/avtar_female.png";
+
   }
 
   else {
@@ -428,6 +451,7 @@ function showToast(message, link) {
     x.innerHTML = message;
     if (link == null) {
       document.getElementById("snackbar-link").href = "javascript: void(0)";
+      document.getElementById("snackbar-link").style.cursor = "default";
       x.className = "show";
       stackCounter = 1;
     }
@@ -465,6 +489,7 @@ function showAlert(message , backColor){
   customAlert = document.getElementById("snackbar-alert");
   customAlert.innerHTML = message;
   customAlert.className = "show";
+  
   if(backColor!=null){
   customAlert.style.backgroundColor = backColor;
   }

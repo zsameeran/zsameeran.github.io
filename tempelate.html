@@ -2,7 +2,11 @@
 <html>
 
 <head>
-
+  <script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-storage.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-database.js"></script>
+  <script src="https://smtpjs.com/v3/smtp.js"></script>
 
   <title>Sb |&nbsp tempelate</title>
   <meta charset="utf-8">
@@ -18,12 +22,6 @@
 
   <link rel="stylesheet" type="text/css" href="tempelate.css">
   <link rel="stylesheet" type="text/css" href="tempelate_responsive.css">
-  <script src="https://smtpjs.com/v3/smtp.js"> </script>
-  <script src="https://www.gstatic.com/firebasejs/7.16.1/firebase-app.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/7.16.1/firebase-auth.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/7.16.1/firebase-storage.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/7.16.1/firebase-database.js"></script>
-
 
 
 
@@ -35,51 +33,15 @@
 </head>
 
 <body>
-  <div id="containerss">
-    <div class="dot dot-1"></div>
-    <div class="dot dot-2"></div>
-    <div class="dot dot-3"></div>
-  </div>
-  <div id="overlay"></div>
-  <div class="bs-example">
-
-
-    <!-- Modal HTML -->
-    <div id="myModal" class="modal">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-            <h4 class="modal-title" style="color:#000">Skill Buddy</h4>
-          </div>
-
-          <div class="modal-body">
-
-
-            <form class="box">
-              <h1 id="login" style="color:#000 ">Login</h1>
-
-              <input type="email" placeholder="Email" id="email_input"></input>
-              <input type="password" placeholder="Password" id="password_input"></input>
-              <button class="btn mybutton" onclick="login()" type="button">Login</button>
-              <div class="other-links">
-                <a class="forgot text-muted" href="#">Forgot password?</a>
-                <button type="button" class="btn  btn-sm google-signin-btn" onclick="google_sign()"><img
-                    src="https://img.icons8.com/color/30/000000/google-logo.png"></img> Sign in with Google</button>
-              </div>
-              <div class="sign-up">
-                <a class="signup" href="signup.html">Sign Up</a>
-              </div>
-            </form>
-
-          </div>
-
-        </div>
-      </div>
-    </div>
-  </div>
 
   <body class="back_img">
+
+    <div id="containerss">
+      <div class="dot dot-1"></div>
+      <div class="dot dot-2"></div>
+      <div class="dot dot-3"></div>
+    </div>
+    <div id="overlay"></div>
 
     <div class="super_container">
 
@@ -89,9 +51,8 @@
         <div class="header_content d-flex flex-row align-items-center">
           <!-- Logo -->
           <div class="logo_container">
-            <div class="logo" onclick="location.href='index.html'" style="cursor: pointer;">
-              <img src="199.png" alt="">
-              <span>Skill buddy</span>
+            <div class="logo">
+              <img src="purple.png" alt="">
             </div>
           </div>
 
@@ -116,8 +77,8 @@
               <div class="dropdown" id="user-drop" style="display: none;">
                 <button class="dropbtn" id="user-drop-name">ME</button>
                 <div class="dropdown-content">
-                  <a href="#">My Profile</a>
-                  <a href="#" onclick="sign_out()">Sign-Out</a>
+                  <a href="userProfile.html">My Profile</a>
+                  <a onclick="sign_out()">Sign-Out</a>
 
                 </div>
               </div>
@@ -171,14 +132,43 @@
       </div>
 
 
+      <!--LOGIN MODAL-->
+      <div id="loginModal" class="modal">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+              <h4 class="modal-title" style="color:#000">Skill Buddy</h4>
+            </div>
+
+            <div class="modal-body">
 
 
+              <form class="box">
+                <h1 id="login" style="color:#000 ">Login</h1>
 
+                <input type="email" placeholder="Email" id="email_input"></input>
+                <input type="password" placeholder="Password" id="password_input"></input>
+                <button class="btn mybutton" onclick="login()" type="button">Login</button>
+                <div class="other-links">
 
+                  <button type="button" class="btn  btn-sm google-signin-btn" onclick="google_sign()"><img
+                      src="https://img.icons8.com/color/30/000000/google-logo.png"></img> Sign in with Google</button>
+                </div>
+                <div class="sign-up">
+                  <a class="signup" href="signup.html">Sign Up</a>
+                </div>
+              </form>
 
-      <!-- Modal -->
-      <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
-        aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <!--INFO GETTING MODAL-->
+      <div class="modal fade" id="infoModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+        aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
           <div class="modal-content">
             <div class="modal-header">
@@ -197,8 +187,7 @@
                     <option>English</option>
                     <option>Hindi</option>
                     <option>Marathi</option>
-                    <option>Bengali</option>
-                    <option>Punjabi</option>
+
                   </select>
                 </div>
 
@@ -236,130 +225,10 @@
         </div>
       </div>
 
-      <!--Be a mentor modal-->
+      <!--CONFIRM DETAILS M=MODAL-->
 
       <!-- Modal -->
-      <div class="modal fade" id="beAMentorModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
-        aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-
-              <h5 class="modal-title" id="exampleModalLongTitle">PLEASE FILL INFO</h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-            <div class="modal-body">
-
-              <form>
-                <div class="form-group">
-                  <label for="formGroupExampleInput">NAME</label>
-                  <input type="text" id="wtmentorName" class="form-control"  placeholder="NAME">
-                </div>
-
-
-                <div class="form-group">
-                  <label for="formGroupExampleInput">CONTACT NO.</label>
-                  <input type="tel" class="form-control" id="wtmentorContact" placeholder="CONACT NO.">
-                </div>
-
-                <div class="form-group">
-                  <label for="formGroupExampleInput">E-MAIL ID</label>
-                  <input type="email" class="form-control" id="wtmentorEmail" placeholder="EMAIL-ID">
-                </div>
-
-                <div class="form-group">
-                  <label for="formGroupExampleInput">LINKEDIN PROFILE URL</label>
-                  <input type="url" class="form-control" id="wtmentorLinkedin" placeholder="LINKEDIN PROFILE URL">
-                </div>
-
-                <div class="form-group">
-                  <label id="phoneno" class="col-md-6  col-sm-3 col-xs-12 control-label highest-degree-modal ">Highest degree </label>
-                  <div id="helloworld" class="col-md-10 col-sm-9 col-xs-12 highest-degree-modal">
-                    <select id="wtmentorEducation" name="cars" class="form-control" required>
-                      <option value="nothing">-Select one-</option>
-                      <option value="sd">School Degree(10th)</option>
-                      <option value="hsd">High School Degree(12th)</option>
-                      <option value="bd">Bachelor's Degree</option>
-                      <option value="md">Master's Degree</option>
-                      <option value="dd">Doctorate Degree</option>
-                    </select>
-
-                  </div>
-                </div>
-
-                <div class="form-group">
-                  <label for="exampleFormControlTextarea1">What skills make you a Mentor</label>
-                  <textarea class="form-control" id="wtmentorSkill" rows="3"></textarea>
-                </div>
-              </form>
-
-
-
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-              <button type="button" class="btn btn-primary" onclick="bMentorSure()">Procced</button>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!--Be A MENTOR CONFIRMATION MODAL-->
-      <div class="modal fade" id="bMentorConfirmation" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle"
-      aria-hidden="true">
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLongTitle">CONFIRMATION</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <div class="modal-body">
-            ARE SURE YOU WANT TO BE A MENTOR FOR THIS SKILL? 
-           
-
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">NO</button>
-            <button type="button" class="btn btn-primary" onclick="confirmMentor()">YES</button>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- BE A MENTOR SUCCESFULL MODAL-->
-    <div class="modal fade" id="mentorsuccessModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle"
-        aria-hidden="true">
-        <div class="modal-dialog" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-            <div class="modal-body">
-              <img src="images/success.png" class="success-gif"></img><br>
-              <p style="text-align: center; font-size: 20px;">
-                WE GOT YOU.<br>
-                WE HAVE RECEIVED YOUR REQUEST. WE WILL GET BACK TO YOU SOON THROUGH EMAIL.
-              </p>
-            </div>
-            <div class="modal-footer">
-
-              <button type="button" class="btn btn-primary" data-dismiss="modal"
-                >OK</button>
-            </div>
-          </div>
-        </div>
-      </div>
-
-
-
-      <!-- Modal -->
-      <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle"
+      <div class="modal fade" id="confirmationModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle"
         aria-hidden="true">
         <div class="modal-dialog" role="document">
           <div class="modal-content">
@@ -384,6 +253,7 @@
         </div>
       </div>
 
+      <!--SUCCESS MODAL-->
       <div class="modal fade" id="successModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle"
         aria-hidden="true">
         <div class="modal-dialog" role="document">
@@ -409,54 +279,152 @@
         </div>
       </div>
 
+      <!--  MENTOR REQUEST MODAL-->
+      <!-- Modal -->
+      <div class="modal fade" id="beAMentorModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+
+              <h5 class="modal-title" id="exampleModalLongTitle">PLEASE FILL INFO</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+
+              <form>
+                <div class="form-group">
+                  <label for="formGroupExampleInput">NAME</label>
+                  <input type="text" id="wtmentorName" class="form-control" placeholder="NAME">
+                </div>
+
+
+                <div class="form-group">
+                  <label for="formGroupExampleInput">CONTACT NO.</label>
+                  <input type="tel" class="form-control" id="wtmentorContact" placeholder="CONACT NO.">
+                </div>
+
+                <div class="form-group">
+                  <label for="formGroupExampleInput">E-MAIL ID</label>
+                  <input type="email" class="form-control" id="wtmentorEmail" placeholder="EMAIL-ID">
+                </div>
+
+                <div class="form-group">
+                  <label for="formGroupExampleInput">LINKEDIN PROFILE URL</label>
+                  <input type="url" class="form-control" id="wtmentorLinkedin" placeholder="LINKEDIN PROFILE URL">
+                </div>
+
+                <div class="form-group">
+                  <label id="phoneno" class="col-md-6  col-sm-3 col-xs-12 control-label highest-degree-modal ">Highest
+                    degree </label>
+                  <div id="helloworld" class="col-md-10 col-sm-9 col-xs-12 highest-degree-modal">
+                    <select id="wtmentorEducation" name="cars" class="form-control" required>
+                      <option value="nothing">-Select one-</option>
+                      <option value="sd">School Degree(10th)</option>
+                      <option value="hsd">High School Degree(12th)</option>
+                      <option value="bd">Bachelor's Degree</option>
+                      <option value="md">Master's Degree</option>
+                      <option value="dd">Doctorate Degree</option>
+                    </select>
+
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label for="exampleFormControlTextarea1">What skills make you a Mentor</label>
+                  <textarea class="form-control" id="wtmentorSkill" rows="3"></textarea>
+                </div>
+              </form>
+
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-primary" onclick="bMentorSure()">Procced</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!--BE A MODAL CONFIRM -->
+      <!--Be A MENTOR CONFIRMATION MODAL-->
+      <div class="modal fade" id="bMentorConfirmation" tabindex="-1" role="dialog"
+        aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLongTitle">CONFIRMATION</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              ARE SURE YOU WANT TO BE A MENTOR FOR THIS SKILL?
+
+
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">NO</button>
+              <button type="button" class="btn btn-primary" onclick="confirmMentor()">YES</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <a id="snackbar-link" href="fill_profile.html">
+        <div id="snackbar">Some text some message..</div>
+      </a>
+      <a id="snackbar-link1" href="fill_profile.html">
+        <div id="snackbar1">Some text some message..</div>
+      </a>
+      <div id="snackbar-alert">Some text some message..</div>
+
       <div class="container-fluid first-container">
         <div class="title" id="skill-title">
 
         </div>
 
         <div class="discription" id="skill-discription">
-
         </div>
 
         <div class="first-button">
-          <button class="btn btn-primary btn-sm mybutton1" onclick="askForMentor()" type="submit">Ask for a
+          <button class="btn btn-primary btn-sm mybutton1" type="submit" onclick="askForMentor()">Ask for a
             mentor</button>
         </div>
 
 
       </div>
 
-      <div id="hello" class=" container-fluid application">
-        <h1 class="list-heading" id="skill-app"></h1>
-        <ul class="appli-list" id="application-unordered-list">
-
-
-        </ul>
-      </div>
-
       <div class="container-fluid container-2">
-        <p id="skill-summary">
+        <p id="summary-text">
 
         </p>
 
       </div>
 
+      <div id="hello" class=" container-fluid application">
+        <h1 class="list-heading">Applications</h1>
+        <ul class="appli-list" id="application-text-list" style="list-style-type:none;">
 
+
+        </ul>
+      </div>
 
 
       <div class="container-fluid our-mentor ">
         <h1 class="mentor-heading">What does our mentor do? </h1>
-        <li class="mentor-des" id="mentor-work">
+        <p class="mentor-des" id="mentor-work">
 
-        </li>
+        </p>
 
       </div>
 
       <div class="button-container">
 
-        <button class="btn btn-primary btn-sm mybutton2" type="submit" data-toggle="modal"
-          data-target="#exampleModalCenter">Ask for a mentor</button>
-        <button class="btn btn-primary btn-sm mybutton3" type="submit" onclick="bMentor()"> Be a mentor for this course</button>
+        <button class="btn btn-primary btn-sm mybutton2" type="submit" onclick="askForMentor()">Ask for a
+          mentor</button>
+        <button class="btn btn-primary btn-sm mybutton3" type="submit"> Be a mentor for this course</button>
       </div>
 
 
@@ -606,25 +574,6 @@
 
         </div>
       </footer>
-
-      <script>
-
-        $(document).ready(function () {
-          function alignModal() {
-            var modalDialog = $(this).find(".modal-dialog");
-
-            // Applying the top margin on modal dialog to align it vertically center
-            modalDialog.css("margin-top", Math.max(0, ($(window).height() - modalDialog.height()) / 2));
-          }
-          // Align modal when it is displayed
-          $(".modal").on("shown.bs.modal", alignModal);
-
-          // Align modal when user resize the window
-          $(window).on("resize", function () {
-            $(".modal:visible").each(alignModal);
-          });
-        });
-      </script>
       <script src="js/jquery-3.2.1.min.js"></script>
       <script src="styles/bootstrap4/popper.js"></script>
       <script src="styles/bootstrap4/bootstrap.min.js"></script>

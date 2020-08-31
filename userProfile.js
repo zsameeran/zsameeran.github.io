@@ -10,6 +10,7 @@ var firebaseConfig = {
     measurementId: "G-LLMM5PTLS3"
 };
 
+
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
 var Database = firebase.database();
@@ -18,33 +19,37 @@ var userDataItem = {};
 var userID;
 var user_gender;
 var User;
+
 firebase.auth().onAuthStateChanged(function (user) {
 
     if (user) {
         document.getElementById("containerss").style.display = "block";
         document.getElementById("overlay").style.display = "block";
-        console.log("in login");
+
         userID = firebase.auth().currentUser.uid;
         emailVerified = user.emailVerified;
         User = user;
 
         if (sessionStorage.getItem('localUserInfo') == null) {
             //CHECKS FOR GOOGLE SIGN IN
-
+            console.log("1");
             if (user.displayName == undefined) {
+                console.log("2");
                 get_logind_user_data(userID);
+
             }
             else {
 
                 show_login(user);
                 set_userprofileImage();
+
             }
         }
 
         else {
-            console.log("in else");
-            user_data = sessionStorage.getItem('localUserInfo');
-            user_data = JSON.parse(user_data);
+            console.log("3");
+            userDataItem = sessionStorage.getItem('localUserInfo');
+            userDataItem = JSON.parse(userDataItem);
 
             show_login(user);
             set_userprofileImage();
@@ -74,7 +79,7 @@ function requestProfileData(userID) {
 
     Database.ref('User/' + userID).once('value').then(function (snapshot) {
         if (snapshot.exists()) {
-
+            
             //fetch data ->
             Database.ref('User/' + userID).once('value').then(function (snapshot) {
                 userDataItem["firstName"] = snapshot.val().firstName;
@@ -103,6 +108,7 @@ function requestProfileData(userID) {
         }
 
         else {
+
             $('#dataNotFoundModal').modal('show');
             //show_login(User);
             //set_userprofileImage();
@@ -167,10 +173,14 @@ function show_login(User) {
     //DISPLAYING NAMES OF USER AND OTHER STUFFS
     document.getElementById("home-login").style.display = "none";
     document.getElementById("user-drop").style.display = "block";
-    console.log(user_data.firstName);
+    console.log("login name");
     if (User.displayName == null) {
-        if (user_data['firstName'] != undefined) {
-            document.getElementById("user-drop-name").innerHTML = user_data.firstName;
+        
+
+        if (userDataItem['firstName'] != undefined) {
+            
+            console.log(userDataItem['firstName']);
+            document.getElementById("user-drop-name").innerHTML = userDataItem.firstName;
         }
     }
     else {
@@ -180,11 +190,11 @@ function show_login(User) {
 
 
 function set_userprofileImage() {
-    console.log(user_data);
+    console.log("profile");
     //DIsplaying user profile iMAGE IF EXISTS OR AVATAR ACCORDING TO GENDER
     if (User.photoURL == null) {
 
-        if (user_data['profileImage'] == undefined) {
+        if (userDataItem['profileImage'] == undefined) {
             if (user_gender == "female") {
                 document.getElementById("login-image").src = "images/avtar_female.png";
             }
@@ -195,7 +205,7 @@ function set_userprofileImage() {
         }
         else {
 
-            document.getElementById("login-image").src = user_data.profileImage;
+            document.getElementById("login-image").src = userDataItem.profileImage;
         }
     }
     else {
@@ -260,8 +270,8 @@ function showProfileInfo() {
             document.getElementById("myHighestDegree").innerHTML = "Doctorate Degree";
             break;
         default:
-        // code block
-        document.getElementById("myHighestDegree").innerHTML = "Nothing";
+            // code block
+            document.getElementById("myHighestDegree").innerHTML = "Nothing";
     }
 
     switch (userDataItem.employmentStatus) {
@@ -286,8 +296,8 @@ function showProfileInfo() {
             document.getElementById("myEmployment").innerHTML = "Other";
             break;
         default:
-        // code block
-        document.getElementById("myEmployment").innerHTML = "Not available";
+            // code block
+            document.getElementById("myEmployment").innerHTML = "Not available";
     }
     document.getElementById("containerss").style.display = "none";
     document.getElementById("overlay").style.display = "none";
@@ -295,9 +305,9 @@ function showProfileInfo() {
 
 }
 
-function editProfile(){
-    sessionStorage.setItem('toshowpv',false);
-    window.location.href="fill_profile.html";
+function editProfile() {
+    sessionStorage.setItem('toshowpv', false);
+    window.location.href = "fill_profile.html";
 
 
 }

@@ -18,7 +18,7 @@ var stackCounter = 0;
 firebase.auth().onAuthStateChanged(function (user) {
   if (user) {
 
-    showAlert("user already signed in. Sign out first and then Sign-up", "orange");
+    
     // User is signed in.
 
     if (user.displayName == null) {
@@ -45,7 +45,7 @@ firebase.auth().onAuthStateChanged(function (user) {
     else {
       document.getElementById("avatar-image").src = user.photoURL;
     }
-
+    showAlert("user already signed in. Sign out first and then Sign-up", "orange");
   } else {
     document.getElementById("user-or-login").style.display = "none";
     // No user is signed in.
@@ -61,7 +61,7 @@ function sign_up() {
 
   var signup_spinner = document.getElementById("Signup-id");
   signup_spinner.className += "spinner-border spinner-border-sm";
-
+  
   var email = document.getElementById("email_field");
   var pass = document.getElementById("password_field");
   var re_enter = document.getElementById("reenter_field");
@@ -80,7 +80,7 @@ function sign_up() {
         sessionStorage.setItem('user_emailAddress', email.value);
         sessionStorage.setItem('user_pass', userPassword);
         signup_spinner.classList.remove("spinner-border");
-        
+        signup_spinner.classList.remove("spinner-border-sm");
         showToast("WE HAVE SENT YOU A VERIFICATION EMAIL.PLEASE VERIFY YOUR EMAIL", null);
        
       }).catch(function (error) {
@@ -92,6 +92,7 @@ function sign_up() {
       // Handle Errors here.
 
       signup_spinner.classList.remove("spinner-border");
+      signup_spinner.classList.remove("spinner-border-sm");
       var errorCode = error.code;
       var errorMessage = error.message;
       showAlert(errorMessage ,"red");
@@ -103,6 +104,7 @@ function sign_up() {
   else {
     var signup_spinner = document.getElementById("Signup-id");
     signup_spinner.classList.remove("spinner-border");
+    signup_spinner.classList.remove("spinner-border-sm");
    
     showAlert("password doesnt match","orange");
   }
@@ -163,9 +165,10 @@ function showAlert(message , backColor){
   customAlert = document.getElementById("snackbar-alert");
   customAlert.innerHTML = message;
   customAlert.className = "show";
+
   if(backColor!=null){
   customAlert.style.backgroundColor = backColor;
   }
-  setTimeout(function () { y.className = y.className.replace("show", ""); stackCounter = 0; }, 3000);
+  setTimeout(function () { customAlert.className = customAlert.className.replace("show", ""); }, 2000);
 
 }

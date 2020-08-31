@@ -1,3 +1,4 @@
+
 // Your web app's Firebase configuration
 var firebaseConfig = {
   apiKey: "AIzaSyCVv-S_UPaeQXdZszo5SglASxEAtwThk7g",
@@ -10,9 +11,10 @@ var firebaseConfig = {
   measurementId: "G-LLMM5PTLS3"
 };
 
+
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
-var storage = firebase.storage();
+var Storage = firebase.storage();
 var Database = firebase.database();
 
 var emailVerified;
@@ -26,10 +28,9 @@ var user_phoneNumber;
 var user_employmentStatus;
 var user_linkedin;
 var user_educational;
-var UserData;
+var userDataItem = {};
 var skill_category;
 var wtmentorInfo = {};
-
 var templateRequestQuery = ["", ""];
 var userMentorAllotmentInfo = {};
 var templateData = {
@@ -68,7 +69,7 @@ firebase.auth().onAuthStateChanged(function (user) {
     document.getElementById("reg-prof").innerHTML = "My Profile";
     // email verification CHECKPOINT
     if (emailVerified == false) {
-      //showAlert("Your Email or Phone Number is not verified.Click the link to Verify", true, true);
+      showToast("EMAIL NOT VERIFIED YET, PLEASE VERIFY", null);
     }
     else {
       // showAlert("", false, false);
@@ -97,19 +98,19 @@ function get_logind_user_data(userID) {
   Database.ref('User/' + userID).once('value').then(function (snapshot) {
     if (snapshot.exists()) {
       Database.ref('User/' + userID).once('value').then(function (snapshot) {
-        user_firstName = snapshot.val().firstName;
-        user_gender = snapshot.val().Gender;
-        user_lastName = snapshot.val().lastName;
-        user_phoneNumber = snapshot.val().phoneNumber;
-        user_educational = snapshot.val().educational;
-        user_employmentStatus = snapshot.val().employmentStatus;
-        user_FieldMajor = snapshot.val().fieldMajor;
-        user_linkedin = snapshot.val().linkedin;
-
-
+        userDataItem["firstName"] = snapshot.val().firstName;
+        userDataItem["gender"] = snapshot.val().Gender;
+        userDataItem["lastName"] = snapshot.val().lastName;
+        userDataItem["phoneNumber"] = snapshot.val().phoneNumber;
+        userDataItem["educational"] = snapshot.val().educational;
+        userDataItem["employmentStatus"] = snapshot.val().employmentStatus;
+        userDataItem["fieldMajor"] = snapshot.val().fieldMajor;
+        userDataItem["linkedin"] = snapshot.val().linkedin;
+        userDataItem["dateOfBirth"] = snapshot.val().dob;
+        userDataItem["email"] = User.email;
 
         firebase.storage().ref('user/' + userID + '/profile').getDownloadURL().then(imgUrl => {
-          user_ProfileImage = imgUrl;
+          userDataItem["profileImage"] = imgUrl;
 
           show_login(User);
           set_userprofileImage();
@@ -133,15 +134,15 @@ function get_logind_user_data(userID) {
   });
 }
 
-
 function show_login(User) {
 
   //DISPLAYING NAMES OF USER AND OTHER STUFFS
   document.getElementById("home-login").style.display = "none";
   document.getElementById("user-drop").style.display = "block";
+
   if (User.displayName == null) {
-    if (user_firstName != undefined) {
-      document.getElementById("user-drop-name").innerHTML = user_firstName;
+    if (userDataItem['firstName'] != undefined) {
+      document.getElementById("user-drop-name").innerHTML = userDataItem.firstName;
     }
   }
   else {
@@ -154,7 +155,7 @@ function set_userprofileImage() {
   //DIsplaying user profile iMAGE IF EXISTS OR AVATAR ACCORDING TO GENDER
   if (User.photoURL == null) {
 
-    if (user_ProfileImage == undefined) {
+    if (userDataItem['profileImage'] == undefined) {
       if (user_gender == "female") {
         document.getElementById("login-image").src = "images/avtar_female.png";
       }
@@ -165,7 +166,7 @@ function set_userprofileImage() {
     }
     else {
 
-      document.getElementById("login-image").src = user_ProfileImage;
+      document.getElementById("login-image").src = userDataItem['profileImage'];
     }
   }
   else {
@@ -204,10 +205,10 @@ function templateDataRequest(skillCategory, skillName) {
       templateData.skill_applications = snapshot.val().templateApplications;
       templateData.skill_mentorwork = snapshot.val().templateMentorwork;
       templateData.skill_applications = templateData.skill_applications.split(',');
+      console.log(templateData.skill_title + templateData.skill_about + " " + templateData.skill_summary + templateData.skill_applications + templateData.skill_mentorwork);
       showTemplateData(templateData.skill_title, templateData.skill_about, templateData.skill_summary, templateData.skill_applications, templateData.skill_mentorwork);
     }
     else {
-
       alert("skill not found");
     }
   })
@@ -218,9 +219,9 @@ function showTemplateData(skill_title, skill_about, skill_summary, skill_applica
 
   document.getElementById("skill-title").innerHTML = skill_title;
   document.getElementById("skill-discription").innerHTML = skill_about;
-  document.getElementById("skill-summary").innerHTML = skill_summary;
+  document.getElementById("summary-text").innerHTML = skill_summary;
   document.getElementById("mentor-work").innerHTML = skill_mentorwork;
-  var ul = document.getElementById("application-unordered-list");
+  var ul = document.getElementById("application-text-list");
   for (var i = 0; i < skill_applications.length; i++) {
     listItem = document.createElement('li');
     listItem.innerHTML = skill_applications[i];
@@ -237,7 +238,6 @@ function getinfo() {
 
   //console.log(document.getElementById("target-text").value);
 
-
   if (document.getElementById("prior-text").value != "" && document.getElementById("target-text").value != "") {
 
     userMentorAllotmentInfo["userPrefLang"] = document.getElementById("lang-select").value;
@@ -245,11 +245,11 @@ function getinfo() {
     userMentorAllotmentInfo["userPriorExperience"] = document.getElementById("prior-text").value;
     userMentorAllotmentInfo["userTarget"] = document.getElementById("target-text").value;
     console.log(userMentorAllotmentInfo.userPrefLang);
-    $("#exampleModalCenter").modal('hide');
-    $("#exampleModalLong").modal('show');
+    $("#infoModal").modal('hide');
+    $("#confirmationModal").modal('show');
   }
   else {
-    alert("enter all fields");
+    ShowAlert("enter all fields");
   }
 
 }
@@ -261,13 +261,13 @@ function sendEmail() {
     Host: "smtp.gmail.com",
     Username: "skillbuddy13",
     Password: "dronacharya",
-    To: 'parth.pedgaonkar18@vit.edu',
+    To: 'zzzsam13@gmail.com',
     From: "skillbuddy13@gmail.com",
     Subject: "MENTOR REQUEST (URGENT)",
-    Body: "Mentor Request From " + user_firstName + " For Skill " + templateRequestQuery[1] + " Please contact the user with " + User.email + " S/he prefers " + userMentorAllotmentInfo.userPrefLang + " as language of communication. and " + userMentorAllotmentInfo.userCommMedium + " as acommunication medium.User have " + userMentorAllotmentInfo.userPriorExperience + " as prior Experience. and he have a target as " + userMentorAllotmentInfo.userTarget,
+    Body: "Mentor Request From " + userDataItem.firstName + " For Skill " + templateRequestQuery[1] + " Please contact the user with " + User.email + " S/he prefers " + userMentorAllotmentInfo.userPrefLang + " as language of communication. and " + userMentorAllotmentInfo.userCommMedium + " as acommunication medium.User have " + userMentorAllotmentInfo.userPriorExperience + " as prior Experience. and he have a target as " + userMentorAllotmentInfo.userTarget,
   }).then(
     message => alert(message),
-    $("#exampleModalLong").modal('hide'),
+    $("#confirmationModal").modal('hide'),
     $("#successModal").modal('show'),
   );
 
@@ -278,26 +278,29 @@ function sendEmail() {
 function askForMentor() {
 
   var user = firebase.auth().currentUser;
-
+  console.log(user);
   if (user) {
     // User is signed in.
-    if (user_firstName == undefined) {
-
+    if (userDataItem.firstName == undefined) {
+      showToast("YOU HAVE NOT FILLED YOUR PROFILE. PLEASE FILL IT BEFORE ASKING FOR A MENTOR (CLICK HERE TO FILL) ", "fill_profile.html");
       window.location.href = "fill_profile.html";
 
     }
-
     else {
-
-      $("#exampleModalCenter").modal('show');
-
-
+      
+      if (emailVerified == false) {
+        
+        showAlert("EMAIL NOT VERIFIED. PLEASE VERIFY IT AND THEN CONTINUE", "red");
+      }
+      else {
+        $("#infoModal").modal('show');
+      }
     }
 
-
-
-  } else {
-    $("#myModal").modal('show');
+  }
+  else {
+    
+    $("#loginModal").modal('show');
 
     // No user is signed in.
   }
@@ -317,16 +320,15 @@ function login() {
   var pass_field = document.getElementById("password_input").value;
 
   firebase.auth().signInWithEmailAndPassword(email_field, pass_field).then(function (result) {
-
     window.location.href = "courses.html";
-
   })
     .catch(function (error) {
       // Handle Errors here.
       var errorCode = error.code;
       var errorMessage = error.message;
       // ...
-      alert(errorMessage);
+
+      showAlert(errorMessage, "red");
 
     });
 }
@@ -361,8 +363,8 @@ function google_sign() {
 
 function bMentor() {
   $('#beAMentorModal').modal('show');
-
 }
+
 
 function bMentorSure() {
 
@@ -372,22 +374,22 @@ function bMentorSure() {
   wtmentorInfo['linkedin'] = document.getElementById("wtmentorLinkedin").value;
   wtmentorInfo['education'] = document.getElementById("wtmentorEducation").value;
   wtmentorInfo['skill'] = document.getElementById("wtmentorSkill").value;
-  
+
   if (wtmentorInfo.name != "" && wtmentorInfo.contact != "" &&
     wtmentorInfo.email != "" && wtmentorInfo.skill != "") {
 
     $('#beAMentorModal').modal('hide');
     $('#bMentorConfirmation').modal('show');
   }
-  else{
-    alert("enter all fields");
+  else {
+    showAlert("ENTER ALL FIELDS" , "red");
   }
 
 }
 
-function confirmMentor(){
+function confirmMentor() {
   $('#bMentorConfirmation').modal('hide');
-  alert("hey");
+  
   document.getElementById("containerss").style.display = "block";
   document.getElementById("overlay").style.display = "block";
   Email.send({
@@ -397,14 +399,16 @@ function confirmMentor(){
     To: 'zzzsam13@gmail.com',
     From: "skillbuddy13@gmail.com",
     Subject: "SOMEONE WANTS TO BE A MENTOR",
-    Body: " Requested From " + wtmentorInfo.name + " For Skill " + templateRequestQuery[1] + " Please contact the user with " + wtmentorInfo.email + " his contact no. is " + wtmentorInfo.contact + " and linkedin " + wtmentorInfo.linkedin + " his highest degree in education is " + wtmentorInfo.education + " He describe himself as: " + wtmentorInfo.skill +"please contact him/her",
+    Body: " Requested From " + wtmentorInfo.name + " For Skill " + templateRequestQuery[1] + " Please contact the user with " + wtmentorInfo.email + " his contact no. is " + wtmentorInfo.contact + " and linkedin " + wtmentorInfo.linkedin + " his highest degree in education is " + wtmentorInfo.education + " He describe himself as: " + wtmentorInfo.skill + "please contact him/her",
   }).then(
-    setTimeout(function showSuccessModal(){ document.getElementById("containerss").style.display = "none",
-    document.getElementById("overlay").style.display = "none",
-     $("#mentorsuccessModal").modal('show'); }, 3000),
-    
-   
-    
+    setTimeout(function showSuccessModal() {
+      document.getElementById("containerss").style.display = "none",
+        document.getElementById("overlay").style.display = "none",
+        $("#mentorsuccessModal").modal('show');
+    }, 3000),
+
+
+
   );
 
 }
@@ -422,4 +426,57 @@ function sign_out() {
     // An error happened.
     alert(error);
   });
+}
+
+
+function showAlert(message, backColor) {
+  customAlert = document.getElementById("snackbar-alert");
+  customAlert.innerHTML = message;
+  customAlert.className = "show";
+  if (backColor != null) {
+    customAlert.style.backgroundColor = backColor;
+  }
+
+  setTimeout(function () { customAlert.className = customAlert.className.replace("show", ""); }, 3000);
+
+}
+
+
+function showToast(message, link) {
+
+
+  if (stackCounter == 0) {
+    var x = document.getElementById("snackbar");
+    x.innerHTML = message;
+    if (link == null) {
+      document.getElementById("snackbar-link").href = "javascript: void(0)";
+      x.className = "show";
+      stackCounter = 1;
+    }
+    else {
+      document.getElementById("snackbar-link").href = link;
+      x.className = "show";
+      stackCounter = 1;
+    }
+    // Add the "show" class to DIV
+    // After 3 seconds, remove the show class from DIV
+    setTimeout(function () { x.className = x.className.replace("show", ""); stackCounter = 0; }, 10000);
+  }
+  else if (stackCounter == 1) {
+    var y = document.getElementById("snackbar1");
+
+    y.innerHTML = message;
+    if (link == null) {
+      document.getElementById("snackbar-link1").href = "javascript: void(0)";
+      y.className = "show";
+      stackCounter = 2;
+    }
+    else {
+      document.getElementById("snackbar-link1").href = link;
+      y.className = "show";
+      stackCounter = 2;
+    }
+    setTimeout(function () { y.className = y.className.replace("show", ""); stackCounter = 0; }, 10000);
+  }
+
 }

@@ -11,8 +11,11 @@ var firebaseConfig = {
   measurementId: "G-LLMM5PTLS3"
 };
 
+
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
+
+
 
 
 var signup_spinner = document.getElementById("verify-id");
@@ -39,8 +42,8 @@ function sendOtp() {
       // user in with confirmationResult.confirm(code).
       window.confirmationResult = confirmationResult;
       //alert("msg sent");
-      document.getElementById("msg-sent-text").style.display = "block";
-
+      document.getElementById("sent-text").style.display = "block";
+      document.getElementById("verify").style.backgroundColor="#cf6add";
     }).catch(function (error) {
       // Error; SMS not sent
       alert(error);
@@ -50,83 +53,87 @@ function sendOtp() {
 }
 
 function verify_otp() {
-  console.log("in funct");
- // signup_spinner.className += "spinner-border spinner-border-sm";
 
+  // signup_spinner.className += "spinner-border spinner-border-sm";
+  var signup_spinner = document.getElementById("verify-id");
+  signup_spinner.className += " spinner-border spinner-border-sm";
   var otp = document.getElementById("verification-code").value;
-    confirmationResult.confirm(otp).then(function (result) {
-      // User signed in successfully.
-      console.log("in success");
-      console.log(otp);
-      alert("registered succesfully");
-      replaceAccount();
-      
-    }).catch(function (error) {
-      // User couldn't sign in (bad verification code?)
-      // ...
-      console.log("in error");
-      //signup_spinner.classList.remove("spinner-border");
-      alert(error.message);
-    });
- 
+  if(otp!=""){
+  confirmationResult.confirm(otp).then(function (result) {
+  
+    //alert("registered succesfully");
+    replaceAccount();
+
+  }).catch(function (error) {
+    // User couldn't sign in (bad verification code?)
+    // ...
+    console.log("in error");
+    //signup_spinner.classList.remove("spinner-border");
+    alert(error.message);
+  });
+  }
+  else{
+    alert("enter otp");
+    signup_spinner.classList.remove("spinner-border");
+    signup_spinner.classList.remove("spinner-border-sm");
+  }
 }
 
 function replaceAccount() {
-//alert("heyyy");
+  //alert("heyyy");
   var last_email = sessionStorage.getItem('user_emailAddress');
   var last_pass = sessionStorage.getItem('user_pass');
 
   ///////////////////////////////////////////////////////////////////
   //signout fucnction
 
- 
   var user = firebase.auth().currentUser;
-
 
   firebase.auth().signOut().then(function () {
     // Sign-out successful.
-    //alert("signout success");
-    //var test1="zzzsam13@gmail.com"
-    //var test2="zingre"
-    
-  user.delete().then(function() {
-    // User deleted.
-  }).catch(function(error) {
-    // An error happened.
-  });
-    var temp_pass = atob(last_pass);
-    firebase.auth().signInWithEmailAndPassword(last_email, temp_pass).then(function (result) {
-      //alert("sign in success");
-      sessionStorage.removeItem('user_pass');
-      sessionStorage.setItem('isPhoneVerified' , true);
-      //signup_spinner.classList.remove("spinner-border");
-      window.location.href = "index.html";
+
+    user.delete().then(function () {
+      // User deleted.
+      // alert("delete success");
+
+       firebase.auth().signInWithEmailAndPassword(last_email, atob(last_pass)).then(function (result) {
+        //alert("sign in success");
+        sessionStorage.removeItem('user_pass');
+        //signup_spinner.classList.remove("spinner-border");
+        signup_spinner.classList.remove("spinner-border");
+        signup_spinner.classList.remove("spinner-border-sm");
+        window.location.href = "index.html";
+  
+      }).catch(function (error) {
+        // Handle Errors here.
+        var errorCode = error.code;
+        var errorMessage = error.message;
+        // ...
+        signup_spinner.classList.remove("spinner-border");
+        signup_spinner.classList.remove("spinner-border-sm");
+        // signup_spinner.classList.remove("spinner-border");
+        alert(errorMessage);
+        
+  
+      });
+      // console.log(last_email);
+      // console.log(atob(last_pass));
 
     }).catch(function (error) {
-      // Handle Errors here.
-      var errorCode = error.code;
-      var errorMessage = error.message;
-      // ...
-     // signup_spinner.classList.remove("spinner-border");
-      alert(errorMessage);
-
+      // An error happened.
+      //signup_spinner.classList.remove("spinner-border");
+      signup_spinner.classList.remove("spinner-border");
+      signup_spinner.classList.remove("spinner-border-sm");
+      alert(error);
     });
+
+   
   }).catch(function (error) {
     // An error happened.
+    signup_spinner.classList.remove("spinner-border");
+    signup_spinner.classList.remove("spinner-border-sm");
     alert(error);
   });
 
- /* user.delete().then(function () {
-    // User deleted.
-    // alert("delete success");
-
-   // console.log(last_email);
-   // console.log(atob(last_pass));
-    
-  }).catch(function (error) {
-    // An error happened.
-    //signup_spinner.classList.remove("spinner-border");
-    alert(error);
-  });*/
 }
 
