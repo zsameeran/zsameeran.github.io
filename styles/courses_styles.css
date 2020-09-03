@@ -95,7 +95,7 @@ p a
 	transition: all 200ms ease;
 }
 a, a:hover, a:visited, a:active, a:link
-{
+{   color:#fff;
 	text-decoration: none;
 	color: white;
 	-webkit-font-smoothing: antialiased;
@@ -318,18 +318,9 @@ section
 	display: inline-block;
 	padding-left: 76px;
 }
-.logo span
-{
-	font-family: 'Open Sans', sans-serif;
-	font-size: 30px;
-	font-weight: 900;
-	color: #3a3a3a;
-	vertical-align: middle;
-	text-transform: capitalize;
-	margin-left: 10px;
-}
+
 .logo img{
-	width:51px;
+	width:300px;
 	height:43px;
 
 }
@@ -445,26 +436,26 @@ section
 
 .hamburger_container
 {
-	position: absolute;
-	top: 50%;
-	-webkit-transform: translateY(-50%);
-	-moz-transform: translateY(-50%);
-	-ms-transform: translateY(-50%);
-	-o-transform: translateY(-50%);
-	transform: translateY(-50%);
-	right: 20px;
-	display: none;
-	cursor: pointer;
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  -o-transform: translateY(-50%);
+  transform: translateY(-50%);
+  left: 20px;
+  display: none;
+  cursor: pointer;
 }
 .hamburger_container i
 {
-	font-size: 24px;
-	padding: 10px;
-	color: #3a3a3a;
+  font-size: 24px;
+  padding: 10px;
+  color: #3a3a3a;
 }
 .hamburger_container:hover i
 {
-	color: #8458B3;
+  color: #8458B3;
 }
 
 /*********************************
@@ -473,168 +464,170 @@ section
 
 .menu_container
 {
-	position: fixed;
-	top: 0;
-	right: -50vw;
-	width: 50vw;
-	height: 100vh;
-	background: #FFFFFF;
-	z-index: 12;
-	-webkit-transition: all 0.6s ease;
-	-moz-transition: all 0.6s ease;
-	-ms-transition: all 0.6s ease;
-	-o-transition: all 0.6s ease;
-	transition: all 0.6s ease;
-	visibility: hidden;
-	opacity: 0;
+  position: fixed;
+  top: 0;
+  left: -50vw;
+  width: 50vw;
+  height: 100vh;
+  background: #FFFFFF;
+  z-index: 12;
+  -webkit-transition: all 0.6s ease;
+  -moz-transition: all 0.6s ease;
+  -ms-transition: all 0.6s ease;
+  -o-transition: all 0.6s ease;
+  transition: all 0.6s ease;
+  visibility: hidden;
+  opacity: 0;
 }
 .menu_container.active
 {
-	visibility: visible;
-	opacity: 1;
-	right: 0;
+  visibility: visible;
+  opacity: 1;
+  left: 0;
 }
 .menu
 {
-	position: absolute;
-	top:150px;
-	left: 0;
-	padding-left: 15%;
+  position: absolute;
+  top:150px;
+  left: 0;
+  padding-left: 15%;
 }
 .menu_list
 {
-	-webkit-transform: translateY(3.5rem);
-	-moz-transform: translateY(3.5rem);
-	-ms-transform: translateY(3.5rem);
-	-o-transform: translateY(3.5rem);
-	transform: translateY(3.5rem);
-	-webkit-transition: all 200ms ease;
-	-moz-transition: all 200ms ease;
-	-ms-transition: all 200ms ease;
-	-o-transition: all 200ms ease;
-	transition: all 1000ms 600ms ease;
-	opacity: 0;
+  -webkit-transform: translateY(3.5rem);
+  -moz-transform: translateY(3.5rem);
+  -ms-transform: translateY(3.5rem);
+  -o-transform: translateY(3.5rem);
+  transform: translateY(3.5rem);
+  -webkit-transition: all 200ms ease;
+  -moz-transition: all 200ms ease;
+  -ms-transition: all 200ms ease;
+  -o-transition: all 200ms ease;
+  transition: all 1000ms 600ms ease;
+  opacity: 0;
 }
 .menu_container.active .menu_list
 {
-	-webkit-transform: translateY(0px);
-	-moz-transform: translateY(0px);
-	-ms-transform: translateY(0px);
-	-o-transform: translateY(0px);
-	transform: translateY(0px);
-	opacity: 1;
+  -webkit-transform: translateY(0px);
+  -moz-transform: translateY(0px);
+  -ms-transform: translateY(0px);
+  -o-transform: translateY(0px);
+  transform: translateY(0px);
+  opacity: 1;
 }
 .menu_item
 {
-	margin-bottom: 9px;
+  margin-bottom: 9px;
 }
 .menu_item a
 {
-	font-family: 'Open Sans', sans-serif;
-	font-size: 36px;
-	font-weight: 700;
-	color: #3a3a3a;
-	-webkit-transition: all 200ms ease;
-	-moz-transition: all 200ms ease;
-	-ms-transition: all 200ms ease;
-	-o-transition: all 200ms ease;
-	transition: all 200ms ease;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 36px;
+  font-weight: 700;
+  color: #3a3a3a;
+  -webkit-transition: all 200ms ease;
+  -moz-transition: all 200ms ease;
+  -ms-transition: all 200ms ease;
+  -o-transition: all 200ms ease;
+  transition: all 200ms ease;
 }
 .menu_item a:hover
 {
-	color: #8458B3;
+  color: #8458B3;
 }
 .menu_close_container
 {
-	position: absolute;
-	top: 86px;
-	right: 79px;
-	width: 21px;
-	height: 21px;
-	cursor: pointer;
-	-webkit-transform: rotate(45deg);
-	-moz-transform: rotate(45deg);
-	-ms-transform: rotate(45deg);
-	-o-transform: rotate(45deg);
-	transform: rotate(45deg);
+  position: absolute;
+  top: 86px;
+  right: 79px;
+  width: 21px;
+  height: 21px;
+  cursor: pointer;
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  -o-transform: rotate(45deg);
+  transform: rotate(45deg);
 }
 .menu_close
 {
-	top: 9px;
-	width: 21px;
-	height: 3px;
-	background: #3a3a3a;
-	-webkit-transition: all 200ms ease;
-	-moz-transition: all 200ms ease;
-	-ms-transition: all 200ms ease;
-	-o-transition: all 200ms ease;
-	transition: all 200ms ease;
+  top: 9px;
+  width: 21px;
+  height: 3px;
+  background: #3a3a3a;
+  -webkit-transition: all 200ms ease;
+  -moz-transition: all 200ms ease;
+  -ms-transition: all 200ms ease;
+  -o-transition: all 200ms ease;
+  transition: all 200ms ease;
 }
 .menu_close::after
 {
-	display: block;
-	position: absolute;
-	top: -9px;
-	left: 9px;
-	content: '';
-	width: 3px;
-	height: 21px;
-	background: #3a3a3a;
-	-webkit-transition: all 200ms ease;
-	-moz-transition: all 200ms ease;
-	-ms-transition: all 200ms ease;
-	-o-transition: all 200ms ease;
-	transition: all 200ms ease;
+  display: block;
+  position: absolute;
+  top: -9px;
+  left: 9px;
+  content: '';
+  width: 3px;
+  height: 21px;
+  background: #3a3a3a;
+  -webkit-transition: all 200ms ease;
+  -moz-transition: all 200ms ease;
+  -ms-transition: all 200ms ease;
+  -o-transition: all 200ms ease;
+  transition: all 200ms ease;
 }
 .menu_close_container:hover .menu_close,
 .menu_close_container:hover .menu_close::after
 {
-	background: #8458B3;
+  background: #8458B3;
 }
-
 /*********************************
 4.1 Menu Social
 *********************************/
 
 .menu_social_container
 {
-	margin-top: 100px;
-	-webkit-transform: translateY(3.5rem);
-	-moz-transform: translateY(3.5rem);
-	-ms-transform: translateY(3.5rem);
-	-o-transform: translateY(3.5rem);
-	transform: translateY(3.5rem);
-	-webkit-transition: all 1000ms 1000ms ease;
-	-moz-transition: all 1000ms 1000ms ease;
-	-ms-transition: all 1000ms 1000ms ease;
-	-o-transition: all 1000ms 1000ms ease;
-	transition: all 1000ms 1000ms ease;
-	opacity: 0;
-	padding-left: 4px;
+  margin-top: 100px;
+  -webkit-transform: translateY(3.5rem);
+  -moz-transform: translateY(3.5rem);
+  -ms-transform: translateY(3.5rem);
+  -o-transform: translateY(3.5rem);
+  transform: translateY(3.5rem);
+  -webkit-transition: all 1000ms 1000ms ease;
+  -moz-transition: all 1000ms 1000ms ease;
+  -ms-transition: all 1000ms 1000ms ease;
+  -o-transition: all 1000ms 1000ms ease;
+  transition: all 1000ms 1000ms ease;
+  opacity: 0;
+  padding-left: 4px;
 }
 .menu_social_item
 {
-	display: inline-block;
-	margin-right: 30px;
+  display: inline-block;
+  margin-right: 27px;
+}
+.menu_social_item:last-child
+{
+  margin-right: 0px;
 }
 .menu_social_item a i
 {
-	color: #3a3a3a;
+  color: #3a3a3a;
 }
 .menu_social_item a i:hover
 {
-	color: #8458B3;
+  color: #8458B3;
 }
 .menu_container.active .menu_social_container
 {
-	-webkit-transform: translateY(0px);
-	-moz-transform: translateY(0px);
-	-ms-transform: translateY(0px);
-	-o-transform: translateY(0px);
-	transform: translateY(0px);
-	opacity: 1;
+  -webkit-transform: translateY(0px);
+  -moz-transform: translateY(0px);
+  -ms-transform: translateY(0px);
+  -o-transform: translateY(0px);
+  transform: translateY(0px);
+  opacity: 1;
 }
-
 
 
 
@@ -781,7 +774,7 @@ section
 	display: block;
 	background: #f8f9fb;
 	border: none;
-	height: 400px;
+	
 }
 .card-img-top
 {   
@@ -791,13 +784,14 @@ section
 .card-body
 {
 	padding-top: 0px;
-	padding-bottom: 0px;
+	padding-bottom: 20px;
 	padding-left: 15px;
 	padding-right: 15px;
 }
 .card-title
 {
 	margin-top: 55px;
+	margin-bottom: 30px;
 }
 .card-title a
 {
@@ -955,8 +949,11 @@ section
 }
 .footer_content .logo img
 {
-	width:51px;
+	
+	width:250px;
 	height:43px;
+
+
 }
 .footer_about_text
 {

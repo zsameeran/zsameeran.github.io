@@ -3,7 +3,7 @@
 
 <head>
 
-  <title>Sb |&nbsp Fill profile</title>
+  <title>WP |&nbsp My profile</title>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="description" content="Course Project">
@@ -19,8 +19,8 @@
   <script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-storage.js"></script>
   <script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-database.js"></script>
 
-  <link rel="stylesheet" type="text/css" href="example.css">
-  <link rel="stylesheet" type="text/css" href="example_responsive.css">
+  <link rel="stylesheet" type="text/css" href="user.profile.css">
+  <link rel="stylesheet" type="text/css" href="user.profile_responsive.css">
 
 </head>
 
@@ -37,26 +37,27 @@
           <!-- Logo -->
           <div class="logo_container">
             <div class="logo" onclick="location.href='index.html'" style="cursor: pointer;">
-              <img src="199.png" alt="">
-              <span>Skill buddy</span>
+              <img src="images/purple.png" alt="">
+             
             </div>
           </div>
 
           <!-- Main Navigation -->
-          <nav class="main_nav_container">
-            <div class="main_nav">
-              <ul class="main_nav_list">
-                <li class="main_nav_item"><a href="index.html">home</a></li>
-                <li class="main_nav_item"><a href="aboutUs_new.html">about us</a></li>
-                <li class="main_nav_item"><a href="courses.html">Categories</a></li>
+           <!-- Main Navigation -->
+        <nav class="main_nav_container">
+          <div class="main_nav">
+            <ul class="main_nav_list">
+              <li class="main_nav_item"><a href="index.html">home</a></li>
+              <li class="main_nav_item"><a href="aboutUs_new.html">about us</a></li>
+              <li class="main_nav_item"><a href="courses.html">Categories</a></li>
 
-              </ul>
-            </div>
-          </nav>
-        </div>
-        <div class="header_side d-flex flex-row justify-content-center align-items-center">
+            </ul>
+          </div>
+        </nav>
+      </div>
+      <div class="header_side d-flex flex-row justify-content-center align-items-center">
 
-          <span><img id="login-image" src=""
+        <span> <img id="login-image" src=""
               style="border-radius: 50%; height: 40px; width: 40px; margin-right: 10px;"></img>
             <div class="dropdown">
               <a id="home-login" href="login.html">Login</a>
@@ -68,16 +69,57 @@
 
                 </div>
               </div>
-            </div>
-          </span>
+            </div></span>
+      </div>
+
+      <!-- Hamburger -->
+      <div class="hamburger_container">
+        <i class="fas fa-bars trans_200"></i>
+      </div>
+
+    </header>
+
+    <!-- Menu -->
+    <div class="menu_container menu_mm">
+
+      <!-- Menu Close Button -->
+      <div class="menu_close_container">
+        <div class="menu_close"></div>
+      </div>
+
+      <!-- Menu Items -->
+      <div class="menu_inner menu_mm">
+        <div class="menu menu_mm">
+          <ul class="menu_list menu_mm">
+            <li class="menu_item menu_mm"><a href="index.html">Home</a></li>
+            <li class="menu_item menu_mm"><a href="aboutUs_new.html">About us</a></li>
+            <li class="menu_item menu_mm"><a href="courses.html">Categories</a></li>
+
+
+          </ul>
+
+          <!-- Menu Social -->
+
+          <div class="menu_social_container menu_mm">
+            <ul class="menu_social menu_mm">
+
+              <li class="menu_social_item menu_mm"><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+              <li class="menu_social_item menu_mm"><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
+              <li class="menu_social_item menu_mm"><a href="#"><i class="fab fa-instagram"></i></a></li>
+
+            </ul>
+          </div>
+
+
         </div>
 
-        <!-- Hamburger -->
-        <div class="hamburger_container">
-          <i class="fas fa-bars trans_200"></i>
-        </div>
+      </div>
 
-      </header>
+    </div>
+
+         
+       <!-- Menu -->
+
 
       <div id="containerss">
         <div class="dot dot-1"></div>
@@ -86,45 +128,12 @@
       </div>
       <div id="overlay"></div>
       <div class="bs-example">
-      <!-- Menu -->
-      <div class="menu_container menu_mm">
-
-        <!-- Menu Close Button -->
-        <div class="menu_close_container">
-          <div class="menu_close"></div>
-        </div>
-
-        <!-- Menu Items -->
-        <div class="menu_inner menu_mm">
-          <div class="menu menu_mm">
-            <ul class="menu_list menu_mm">
-              <li class="menu_item menu_mm"><a href="index.html">Home</a></li>
-              <li class="menu_item menu_mm"><a href="aboutUs_new.html">About us</a></li>
-              <li class="menu_item menu_mm"><a href="courses.html">Categories</a></li>
-
-
-            </ul>
-
-            <!-- Menu Social -->
-
-            <div class="menu_social_container menu_mm">
-              <ul class="menu_social menu_mm">
-
-                <li class="menu_social_item menu_mm"><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-                <li class="menu_social_item menu_mm"><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
-                <li class="menu_social_item menu_mm"><a href="#"><i class="fab fa-instagram"></i></a></li>
-
-              </ul>
-            </div>
-
-
-          </div>
-
-        </div>
-
       </div>
+    
+    
+      
       <div class="box">
-        <hr>
+       
 
         <div class="container bootstrap snippets bootdey ">
           <div class="row">
@@ -132,7 +141,7 @@
               <h1>My Profile</h1>
             </div>
             <div class="col-lg-2">
-              <a href="/users" class="pull-right"><img title="profile image" class="img-circle img-responsive"
+              <a  class="pull-right"><img title="profile image" class="img-circle img-responsive"
                   id="userImage" src="https://bootdey.com/img/Content/avatar/avatar1.png"></a>
             </div>
           </div>
@@ -152,7 +161,7 @@
                 </li>
               </ul>
               <div class="tab-content">
-                <hr>
+              
 
                 <div class="tab-pane fade show active" id="Personal">
                   <div class="form-group">
@@ -335,12 +344,13 @@
           </div>
         </div>
       </div>
-
+</div>
 
       
 
 
 
+</div>
         <!--/row-->
         <footer class="footer">
           <div class="container">
@@ -385,8 +395,8 @@
                   <!-- Logo -->
                   <div class="logo_container">
                     <div class="logo">
-                      <img src="199.png" alt="">
-                      <span>skill buddy</span>
+                      <img src="images/purple.png" alt="">
+                      
                     </div>
                   </div>
 

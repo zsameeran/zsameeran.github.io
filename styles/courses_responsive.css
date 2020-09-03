@@ -151,7 +151,7 @@
 	}
 	.logo_container
 	{
-		padding-left: 30px;
+		padding-left: 540px;
 	}
 	.hamburger_container
 	{
@@ -262,7 +262,9 @@
 
 @media only screen and (max-width: 768px)
 {
-	
+	.logo_container{
+	padding-left: 470px;
+}
 }
 
 /************
@@ -285,6 +287,43 @@
 	{
 		margin-top: 15px;
 	}
+	.logo_container{
+	padding-left: 450px;
+}
+}
+@media only screen and (max-width: 667px){
+      
+       .logo_container{
+	  padding-left: 400px;
+
+
+}
+.logo img
+	{
+		width: 220px;
+		height:35px;
+	}
+	}
+
+@media only screen and (max-width: 640px){
+
+   .logo_container{
+	padding-left: 360px;
+}
+.logo img
+	{
+		width: 250px;
+		height:35px;
+	}
+
+
+}
+@media only screen and (max-width: 600px){
+
+   .logo_container{
+	padding-left: 320px;
+
+}
 }
 
 /************
@@ -299,21 +338,20 @@
 	{
 		height: 74px;
 	}
+	
 	.logo_container
 	{
-		padding-left: 15px;
+		padding-left: 380px;
 	}
 	.logo img
 	{
-		width: 30px;
+		width: 200px;
+		height:35px;
 	}
-	.logo span
-	{
-		font-size: 16px;
-	}
+	
 	.hamburger_container
 	{
-		right: 5px;
+		left: 5px;
 	}
 	.menu
 	{
@@ -438,7 +476,10 @@
 
 @media only screen and (max-width: 539px)
 {
-	
+	.logo_container
+	{
+		padding-left: 380px;
+	}
 }
 
 /************
@@ -471,6 +512,15 @@
 		padding-right: 5px;
 		margin-left: 0px;
 		margin-right: 0px;
+	}
+	.logo_container
+	{
+		padding-left: 260px;
+	}
+	.logo img
+	{
+		width: 150px;
+		height:25px;
 	}
 	.hero_boxes
 	{
@@ -506,5 +556,35 @@
 
 @media only screen and (max-width: 400px)
 {
-	
+	.logo_container
+	{
+		padding-left: 200px;
+	}
+}
+/************
+15. 320px
+************/
+
+@media only screen and (max-width: 320px)
+{   
+	.logo_container
+	{
+		padding-left: 150px;
+	}
+	.logo img
+	{
+		width: 140px;
+		height:25px;
+	}
+}
+/************
+15. 281px
+************/
+
+@media only screen and (max-width: 281px)
+{   
+	.logo_container
+	{
+		padding-left: 140px;
+	}
 }

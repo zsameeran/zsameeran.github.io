@@ -158,7 +158,12 @@
 	}
 	.logo_container
 	{
-		padding-left: 450px;
+		padding-left: 430px;
+	}
+	.logo img
+	{
+		width: 280px;
+		height:40px;
 	}
 	.hamburger_container
 	{
@@ -287,6 +292,7 @@
 		top:25px;
 	}
 	
+	
 	.menu_container
 	{
 		right: -100vw;
@@ -302,7 +308,16 @@
 		margin-top: 15px;
 	}
 }
-
+/************
+10. 667px
+************/
+@media only screen and (max-width: 667px){
+	.logo img
+	{
+		width: 220px;
+		height:35px;
+	}
+	}
 /************
 10. 640px
 ************/
@@ -312,12 +327,17 @@
    .logo_container{
 	padding-left: 320px;
 }
+.logo img
+	{
+		width: 250px;
+		height:35px;
+	}
 
 }
 @media only screen and (max-width: 600px){
 
    .logo_container{
-	padding-left: 300px;
+	padding-left: 280px;
 
 }
    
@@ -334,19 +354,18 @@
 	
 	.logo_container
 	{
-		padding-left: 300px;
+		padding-left:280px;
 	}
-	.logo img
-	{
-		width: 30px;
-	}
-	.logo span
-	{
-		font-size: 16px;
-	}
+
+	
 	.hamburger_container
 	{
 		left: 5px;
+	}
+	.logo img
+	{
+		width: 200px;
+		height:35px;
 	}
 	
 	.menu
@@ -399,6 +418,9 @@
 	.price_box
 	{
 		margin-top: 37px;
+	}
+	.register{
+		margin-top: 50px;
 	}
 	.register_section,
 	.search_section
@@ -495,7 +517,12 @@
 	}
 	.logo_container
 	{
-		padding-left: 220px;
+		padding-left: 210px;
+	}
+	.logo img
+	{
+		width: 150px;
+		height:25px;
 	}
 	.hero_slide_content h1
 	{
@@ -546,6 +573,7 @@
 	{
 		padding-left: 170px;
 	}
+	
 }
 
 
@@ -560,6 +588,11 @@
 	.logo_container
 	{
 		padding-left: 140px;
+	}
+	.logo img
+	{
+		width: 140px;
+		height:25px;
 	}
 }
 /************

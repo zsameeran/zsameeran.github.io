@@ -267,12 +267,23 @@
 
 
 }
+.logo img
+	{
+		width: 220px;
+		height:35px;
+	}
+	}
 
 @media only screen and (max-width: 640px){
 
    .logo_container{
 	padding-left: 360px;
 }
+.logo img
+	{
+		width: 250px;
+		height:35px;
+	}
 
 
 }
@@ -307,12 +318,10 @@
 	}
 	.logo img
 	{
-		width: 30px;
+		width: 200px;
+		height:35px;
 	}
-	.logo span
-	{
-		font-size: 16px;
-	}
+	
 	.hamburger_container
 	{
 		left: 5px;
@@ -420,6 +429,11 @@
 	{
 		padding-left: 260px;
 	}
+	.logo img
+	{
+		width: 150px;
+		height:25px;
+	}
 }
 
 
@@ -432,7 +446,7 @@
 {
 	.logo_container
 	{
-		padding-left: 210px;
+		padding-left: 200px;
 	}
 }
 
@@ -451,6 +465,11 @@
 	.logo_container
 	{
 		padding-left: 150px;
+	}
+	.logo img
+	{
+		width: 140px;
+		height:25px;
 	}
 }
 /************

@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-	<title>Sb-aboutUs </title>
+	<title>Wise Potato | About Us</title>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="description" content="Course Project">
@@ -15,6 +15,7 @@
 	<script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-auth.js"></script>
 	<script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-storage.js"></script>
 	<script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-database.js"></script>
+	<link rel="icon" href="images/Fav.png" type="image/x-icon">
 
 </head>
 
@@ -27,14 +28,12 @@
 		<header class="header d-flex flex-row">
 			<div class="header_content d-flex flex-row align-items-center">
 				<!-- Hamburger -->
-				<div class="hamburger_container">
-					<i class="fas fa-bars trans_200"></i>
-				</div>
+				
 				<!-- Logo -->
 				<div class="logo_container">
 					<div class="logo">
-						<img src="199.png" alt="">
-						<span>Skill buddy</span>
+						<img src="images/purple.png" >
+						
 					</div>
 				</div>
 
@@ -67,6 +66,10 @@
 					</div>
 				</span>
 			</div>
+
+			<div class="hamburger_container">
+					<i class="fas fa-bars trans_200"></i>
+				</div>
 
 
 
@@ -109,12 +112,11 @@
 			</div>
 
 		</div>
-		<div class="bg-light">
+		<div id="hello" class="fluid-container">
 			<div class="container py-5">
 				<div class="row h-100 align-items-center py-5">
 					<div class="col-lg-6">
-						<h1 class="display-4">Skill Buddy</h1>
-						<p class="lead text-muted mb-0"><br></p>
+						<h1 class="display-4"><span style="font-size: 95px; font-family: Aparajita;">Wise</span><strong><span style="font-size: 95px; font-family: Lakki Reddy; color: #8458b3"> Potato</strong></h1>
 						<p class="lead text-muted">Connecting &bull; Helping &bull; Nurturing</p>
 					</div>
 					<div class="col-lg-6 d-none d-lg-block"><img
@@ -129,7 +131,7 @@
 				<div class="row align-items-center mb-5">
 					<div class="col-lg-6 order-2 order-lg-1">
 						<h2 id="wwa" class="font-weight-light">Who We Are</h2>
-						<p id="wwatxt" class="font-italic  mb-4">Skill Buddy. We connect inquisitive people with the
+						<p id="wwatxt" class="font-italic  mb-4">Wise Potato. We connect inquisitive people with the
 							experts in their field of interest for One-to-one mentoring. We aim to create a global
 							community of knowledge enthusiasts and provide them with a FREE online platform to share
 							their knowledge and grow together.</p>
@@ -157,140 +159,125 @@
 
 
 
-		<!-- Footer -->
+	<!-- Footer -->
 
-		<footer class="footer">
-			<div class="container">
+	<footer class="footer" style="background-color: #525252">
+		<div class="container">
 
-				<!-- Newsletter -->
+			
+			<!-- Footer Content -->
 
-				<div class="newsletter">
-					<div class="row">
-						<div class="col">
-							<div class="section_title text-center">
-								<h1>Reach out to us</h1>
+			<div class="footer_content">
+				<div class="row">
+
+					<!-- Footer Column - About -->
+					<div class="col-lg-4 footer_col">
+
+						<!-- Logo -->
+						<div class="logo_container">
+							<div class="logo">
+								<img src="images/purple.png">
+								
 							</div>
+						</div>
+
+						<p class="footer_about_text">Connecting &bull; Helping &bull; Nurturing</p>
+
+					</div>
+
+					<!-- Footer Column - Menu -->
+
+					<div class="col-lg-4 footer_col">
+						<div class="footer_column_title">Menu</div>
+						<div class="footer_column_content">
+							<ul>
+								<li class="footer_list_item"><a href="index.html">Home</a></li>
+								<li class="footer_list_item"><a href="aboutUs_new.html">About Us</a></li>
+								<li class="footer_list_item"><a href="login.html">Sign in</a></li>
+
+							</ul>
 						</div>
 					</div>
 
-					<div class="row">
-						<div class="col text-center">
-							<div class="newsletter_form_container mx-auto">
-								<form action="post">
-									<div
-										class="newsletter_form d-flex flex-md-row flex-column flex-xs-column align-items-center justify-content-center">
-										<input id="newsletter_email" class="newsletter_email" type="email"
-											placeholder="Email Address" required="required"
-											data-error="Valid email is required.">
-										<button id="newsletter_submit" type="submit"
-											class="newsletter_submit_btn trans_300" value="Submit">Request info
-											mail</button>
+					<!-- Footer Column - Usefull Links -->
+
+
+
+					<!-- Footer Column - Contact -->
+
+					<div class="col-lg-4 footer_col">
+						<div class="footer_column_title">Contact</div>
+						<div class="footer_column_content">
+							<ul>
+								<li class="footer_contact_item">
+									<i class="fas fa-map-marker-alt"></i>
+									&nbsp 666 - Upper Indira Nagar,
+									&nbspBibwewadi
+									Pune-411037
+								</li>
+								<li class="footer_contact_item">
+									<div class="fas fa-phone mr-3">
+
 									</div>
-								</form>
-							</div>
+									+91 98506 90347
+								</li>
+								<li class="footer_contact_item">
+									<p>
+										<i class="fas fa-envelope mr-3"></i>
+										<a href="mailto:support@wisepotato.in">support@wisepotato.in</a></p>
+								</li>
+							</ul>
 						</div>
 					</div>
 
 				</div>
+			</div>
 
-				<!-- Footer Content -->
+			<!-- Footer Copyright -->
 
-				<div class="footer_content">
-					<div class="row">
+			<div class="footer_bar d-flex flex-column flex-sm-row align-items-center">
+				<div class="footer_copyright">
+					<span>
+						<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+						Copyright &copy;
+						<script>document.write(new Date().getFullYear());</script> <a href="www.wisepotato.in"
+							target="_blank">wisepotato.in</a>
+						<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></span>
 
-						<!-- Footer Column - About -->
-						<div class="col-lg-4 footer_col">
-
-							<!-- Logo -->
-							<div class="logo_container">
-								<div class="logo">
-									<img src="199.png" alt="">
-									<span>skill buddy</span>
-								</div>
-							</div>
-
-							<p class="footer_about_text">We help you to get enriched with all the skills..</p>
-
-						</div>
-
-						<!-- Footer Column - Menu -->
-
-						<div class="col-lg-4 footer_col">
-							<div class="footer_column_title">Menu</div>
-							<div class="footer_column_content">
-								<ul>
-									<li class="footer_list_item"><a href="index.html">Home</a></li>
-									<li class="footer_list_item"><a href="aboutUs_new.html">About Us</a></li>
-									<li class="footer_list_item"><a href="login.html">Sign in</a></li>
-
-								</ul>
-							</div>
-						</div>
-
-						<!-- Footer Column - Usefull Links -->
-
-
-
-						<!-- Footer Column - Contact -->
-
-						<div class="col-lg-4 footer_col">
-							<div class="footer_column_title">Contact</div>
-							<div class="footer_column_content">
-								<ul>
-									<li class="footer_contact_item">
-										<i class="fas fa-map-marker-alt"></i>
-										&nbsp 666 - Upper Indira Nagar,
-										&nbsp &nbsp &nbsp Bibwewadi
-										Pune-411037
-									</li>
-									<li class="footer_contact_item">
-										<div class="fas fa-phone mr-3">
-
-										</div>
-										+91 9850690347
-									</li>
-									<li class="footer_contact_item">
-										<p>
-											<i class="fas fa-envelope mr-3"></i>
-											<a href="mailto:support@skillbuddy.com">support@skillbuddy.com</a></p>
-									</li>
-								</ul>
-							</div>
-						</div>
-
-					</div>
 				</div>
 
-				<!-- Footer Copyright -->
-
-				<div class="footer_bar d-flex flex-column flex-sm-row align-items-center">
-					<div class="footer_copyright">
-						<span>
-							<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-							Copyright &copy;
-							<script>document.write(new Date().getFullYear());</script> <a href="https://skillbuddy.com"
-								target="_blank">skillbuddy.com</a>
-							<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></span>
-
-					</div>
-
-					<li class="privacy_terms"><a href="#">privacy & terms</a></li>
-
-					<div class="footer_social ml-sm-auto">
-
-						<ul class="menu_social">
-
-							<li class="menu_social_item"><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-							<li class="menu_social_item"><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
-							<li class="menu_social_item"><a href="#"><i class="fab fa-instagram"></i></a></li>
+				<li class="privacy_terms"><a href="#">privacy & terms</a></li>
 
 
+				<div class="footer_social ml-sm-auto">
+
+					<ul class="menu_social">
+
+						<li class="menu_social_item"><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+						<li class="menu_social_item"><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
+						<li class="menu_social_item"><a href="#"><i class="fab fa-instagram"></i></a></li>
+
+
+					</ul>
+
+
+
+
+				</div>
+
+
+					<div class="3HS ml-sm-auto">
+						<ul>
+							<li>A Project by:</li>
+							<li><img src="images/3HS.png" height="44px" width="44px"></a></li>
+							<li><span style="font-family: Agency FB; color: #ffffff; font-size: 25px;">3Hundred Solutions</span></li>
 						</ul>
 					</div>
-				</div>
 
 			</div>
-		</footer>
+
+		</div>
+	</footer>
 
 	</div>
 
