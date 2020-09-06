@@ -375,5 +375,27 @@
 
 @media only screen and (max-width: 400px)
 {
+	#snackbar-alert {
 	
+		left: 15%; /* Center the snackbar */
+		
+	  }
+}
+
+@media only screen and (max-width:320px)
+{
+	#snackbar-alert {
+	
+		left: 10%; /* Center the snackbar */
+		
+	  }
+}
+
+@media only screen and (max-width:320px)
+{
+	#snackbar-alert {
+	
+		left: 3%; /* Center the snackbar */
+		
+	  }
 }

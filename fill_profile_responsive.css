@@ -245,6 +245,11 @@
 		width: 100vw;
 		height: 100vh;
 	}
+	#snackbar-alert {
+	
+		left: 35%; /* Center the snackbar */
+		
+	  }
 	.newsletter_email
 	{
 		width: 100%;
@@ -284,6 +289,11 @@
 		width: 250px;
 		height:35px;
 	}
+	#snackbar-alert {
+	
+		left: 30%; /* Center the snackbar */
+		
+	  }
 
 
 }
@@ -440,6 +450,11 @@
 		width: 150px;
 		height:25px;
 	}
+	#snackbar-alert {
+	
+		left: 20%; /* Center the snackbar */
+		
+	  }
 }
 
 
@@ -454,6 +469,11 @@
 	{
 		padding-left: 200px;
 	}
+	#snackbar-alert {
+	
+		left: 15%; /* Center the snackbar */
+		
+	  }
 }
 
 
@@ -477,6 +497,11 @@
 		width: 140px;
 		height:25px;
 	}
+	#snackbar-alert {
+	
+		left: 10%; /* Center the snackbar */
+		
+	  }
 }
 /************
 15. 281px
@@ -491,4 +516,10 @@
 	{
 		padding-left: 130px;
 	}
+	#snackbar-alert {
+	
+		left: 3%; /* Center the snackbar */
+		
+		
+	  }
 }
