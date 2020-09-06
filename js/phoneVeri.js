@@ -13,6 +13,7 @@ window.onload = function () {
   appVerifier.render();
 }
 
+
 function sendOtp() {
 
   var countryData = iti.getSelectedCountryData();
@@ -80,7 +81,8 @@ function replaceAccount() {
     user.delete().then(function () {
       // User deleted.
       // alert("delete success");
-
+      if(sessionStorage.getItem('user_pass') != null)
+      {
        firebase.auth().signInWithEmailAndPassword(last_email, atob(last_pass)).then(function (result) {
         //alert("sign in success");
         sessionStorage.removeItem('user_pass');
@@ -101,6 +103,31 @@ function replaceAccount() {
         
   
       });
+
+    }
+    else{
+      var provider = new firebase.auth.GoogleAuthProvider();
+  firebase.auth().signInWithPopup(provider).then(function (result) {
+    // This gives you a Google Access Token. You can use it to access the Google API.
+    var token = result.credential.accessToken;
+    // The signed-in user info.
+    var user = result.user;
+
+     showAlert("Sign-In Successfull", "green");
+    window.location.href = "index.html";
+
+  }).catch(function (error) {
+    // Handle Errors here.
+    var errorCode = error.code;
+    var errorMessage = error.message;
+    // The email of the user's account used.
+    var email = error.email;
+    showAlert(errorMessage , "red");
+    // The firebase.auth.AuthCredential type that was used.
+    var credential = error.credential;
+    // ...
+  });
+    }
       // console.log(last_email);
       // console.log(atob(last_pass));
 

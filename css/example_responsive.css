@@ -227,6 +227,11 @@
 	{
 		margin-top: 15px;
 	}
+	#snackbar-alert {
+	
+		left: 35%; /* Center the snackbar */
+		
+	  }
 }
 
 /************
@@ -249,6 +254,11 @@
 	{
 		width: 30px;
 	}
+	#snackbar-alert {
+	
+		left: 30%; /* Center the snackbar */
+		
+	  
 	.logo span
 	{
 		font-size: 16px;
@@ -354,6 +364,11 @@
 		height: 60px;
 		
 	}
+	#snackbar-alert {
+	
+		left: 20%; /* Center the snackbar */
+		
+	  }
 }
 
 /************
@@ -362,7 +377,11 @@
 
 @media only screen and (max-width: 400px)
 {
+	#snackbar-alert {
 	
+		left: 15%; /* Center the snackbar */
+		
+	  }
 }
 @media screen and (max-width: 600px) {
   
