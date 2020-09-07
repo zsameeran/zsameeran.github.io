@@ -1,0 +1,1291 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800|Roboto:400,500,700');
+
+/*********************************
+2. Body and some general stuff
+*********************************/
+
+*
+{
+    margin: 0;
+    padding: 0;
+    -webkit-font-smoothing: antialiased;
+    -webkit-text-shadow: rgba(0,0,0,.01) 0 0 1px;
+    text-shadow: rgba(0,0,0,.01) 0 0 1px;
+}
+body
+{
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    background: #FFFFFF;
+    color: #a5a5a5;
+  
+        
+}
+
+
+div
+{
+    display: block;
+    position: relative;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+ul
+{
+    list-style: none;
+    margin-bottom: 0px;
+}
+p
+{
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+    line-height: 2.29;
+    font-weight: 400;
+    color: #a5a5a5;
+    -webkit-font-smoothing: antialiased;
+    -webkit-text-shadow: rgba(0,0,0,.01) 0 0 1px;
+    text-shadow: rgba(0,0,0,.01) 0 0 1px;
+}
+p a
+{
+    display: inline;
+    position: relative;
+    color: inherit;
+    border-bottom: solid 1px #8458B3;
+    -webkit-transition: all 200ms ease;
+    -moz-transition: all 200ms ease;
+    -ms-transition: all 200ms ease;
+    -o-transition: all 200ms ease;
+    transition: all 200ms ease;
+}
+a, a:hover, a:visited, a:active, a:link
+{   color:#fff;
+    text-decoration: none;
+    -webkit-font-smoothing: antialiased;
+    -webkit-text-shadow: rgba(0,0,0,.01) 0 0 1px;
+    text-shadow: rgba(0,0,0,.01) 0 0 1px;
+}
+p a:active
+{
+    position: relative;
+    color: #FF6347;
+}
+p a:hover
+{
+    color: #FFFFFF;
+    background: #8458B3;
+}
+p a:hover::after
+{
+    opacity: 0.2;
+}
+::selection
+{
+    background: #FFD266;
+    color: #C88E00;
+}
+p::selection
+{
+    background: #FFD266;
+    color: #C88E00;
+}
+h1{font-size: 36px;}
+h2{font-size: 22px;}
+h3{font-size: 18px;}
+h4{font-size: 14px;}
+h5{font-size: 11px;}
+h1, h2, h3, h4, h5, h6
+{
+    font-family: 'Roboto', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -webkit-text-shadow: rgba(0,0,0,.01) 0 0 1px;
+    text-shadow: rgba(0,0,0,.01) 0 0 1px;
+}
+h1::selection, 
+h2::selection, 
+h3::selection, 
+h4::selection, 
+h5::selection, 
+h6::selection
+{
+    
+}
+::-webkit-input-placeholder
+{
+    font-size: 14px !important;
+    font-weight: 500 !important;
+    color: #a5a5a5 !important;
+}
+:-moz-placeholder /* older Firefox*/
+{
+    font-size: 14px !important;
+    font-weight: 500 !important;
+    color: #a5a5a5 !important;
+}
+::-moz-placeholder /* Firefox 19+ */ 
+{
+    font-size: 14px !important;
+    font-weight: 500 !important;
+    color: #a5a5a5 !important;
+} 
+:-ms-input-placeholder
+{ 
+    font-size: 14px !important;
+    font-weight: 500 !important;
+    color: #a5a5a5 !important;
+}
+::input-placeholder
+{
+    font-size: 14px !important;
+    font-weight: 500 !important;
+    color: #a5a5a5 !important;
+}
+.form-control
+{
+}
+
+.highest-degree-modal{
+  margin-left: -15px;
+}
+section
+{
+    display: block;
+    position: relative;
+    box-sizing: border-box;
+}
+.clear
+{
+    clear: both;
+}
+.clearfix::before, .clearfix::after
+{
+    content: "";
+    display: table;
+}
+.clearfix::after
+{
+    clear: both;
+}
+.clearfix
+{
+    zoom: 1;
+}
+.float_left
+{
+    float: left;
+}
+.float_right
+{
+    float: right;
+}
+.trans_200
+{
+    -webkit-transition: all 200ms ease;
+    -moz-transition: all 200ms ease;
+    -ms-transition: all 200ms ease;
+    -o-transition: all 200ms ease;
+    transition: all 200ms ease;
+}
+.trans_300
+{
+    -webkit-transition: all 300ms ease;
+    -moz-transition: all 300ms ease;
+    -ms-transition: all 300ms ease;
+    -o-transition: all 300ms ease;
+    transition: all 300ms ease;
+}
+.trans_400
+{
+    -webkit-transition: all 400ms ease;
+    -moz-transition: all 400ms ease;
+    -ms-transition: all 400ms ease;
+    -o-transition: all 400ms ease;
+    transition: all 400ms ease;
+}
+.trans_500
+{
+    -webkit-transition: all 500ms ease;
+    -moz-transition: all 500ms ease;
+    -ms-transition: all 500ms ease;
+    -o-transition: all 500ms ease;
+    transition: all 500ms ease;
+}
+.fill_height
+{
+    height: 100%;
+}
+.super_container
+{
+    width: 100%;
+    overflow: hidden;
+}
+.prlx_parent
+{
+    overflow: hidden;
+}
+.prlx
+{
+    height: 130% !important;
+}
+.nopadding
+{
+    padding: 0px !important;
+}
+
+/*********************************
+3. Header
+*********************************/
+
+
+
+.dropbtn {
+	
+	background: transparent;
+	color: white;
+	padding: 16px;
+	font-size: 16px;
+	border: none;
+  }
+  
+  .dropdown {
+	
+	position: relative;
+	display: inline-block;
+  }
+  
+  .dropdown-content {
+	display: none;
+	position: absolute;
+	background-color: #f1f1f1;
+	min-width: 160px;
+	box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+	z-index: 1;
+  }
+  
+ 
+  .dropdown-content a {
+	color: black;
+	padding: 12px 16px;
+	text-decoration: none;
+	display: block;
+  }
+  
+  .dropdown-content a:hover {background-color: #ddd;}
+  
+  .dropdown:hover .dropdown-content {display: block;}
+  
+  .dropdown:hover .dropbtn {}
+
+
+
+  
+#overlay {
+  position: fixed; /* Sit on top of the page content */
+  display: none; /* Hidden by default */
+  width: 100%; /* Full width (cover the whole page) */
+  height: 100%; /* Full height (cover the whole page) */
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0,0,0,0.5); /* Black background with opacity */
+  z-index: 2; /* Specify a stack order in case you're using a different order for other elements */
+  cursor: pointer; /* Add a pointer on hover */
+}
+#containerss {
+  position: fixed; /* Sit on top of the page content */
+  display: none; /* Hidden by default */
+  width: 100%; /* Full width (cover the whole page) */
+  height: 100%; /* Full height (cover the whole page) */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+ 
+  margin: auto;
+  filter: url('#goo');
+  z-index: 2;
+  animation: rotate-move 2s ease-in-out infinite;
+}
+
+.dot { 
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  background-color: #000;
+  position: absolute;
+  display: inline-block;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+
+.dot-3 {
+  background-color: #8458b3;
+  animation: dot-3-move 2s ease infinite, index 6s ease infinite;
+}
+
+.dot-2 {
+  background-color: #d0bdf4;
+  animation: dot-2-move 2s ease infinite, index 6s -4s ease infinite;
+}
+
+.dot-1 {
+  background-color: #d9bbdd;
+  animation: dot-1-move 2s ease infinite, index 6s -2s ease infinite;
+}
+
+@keyframes dot-3-move {
+  20% {transform: scale(1)}
+  45% {transform: translateY(-18px) scale(.45)}
+  60% {transform: translateY(-90px) scale(.45)}
+  80% {transform: translateY(-90px) scale(.45)}
+  100% {transform: translateY(0px) scale(1)}
+}
+
+@keyframes dot-2-move {
+  20% {transform: scale(1)}
+  45% {transform: translate(-16px, 12px) scale(.45)}
+  60% {transform: translate(-80px, 60px) scale(.45)}
+  80% {transform: translate(-80px, 60px) scale(.45)}
+  100% {transform: translateY(0px) scale(1)}
+}
+
+@keyframes dot-1-move {
+  20% {transform: scale(1)}
+  45% {transform: translate(16px, 12px) scale(.45)}
+  60% {transform: translate(80px, 60px) scale(.45)}
+  80% {transform: translate(80px, 60px) scale(.45)}
+  100% {transform: translateY(0px) scale(1)}
+}
+
+@keyframes rotate-move {
+  55% {transform: translate(-50%, -50%) rotate(0deg)}
+  80% {transform: translate(-50%, -50%) rotate(360deg)}
+  100% {transform: translate(-50%, -50%) rotate(360deg)}
+}
+
+@keyframes index {
+  0%, 100% {z-index: 3}
+  33.3% {z-index: 2}
+  66.6% {z-index: 1}
+}
+
+
+.header
+{
+    position: sticky;
+    top: 0;
+    
+    
+    width: 100%;
+    height: 104px;
+    background: #FFFFFF;
+    z-index: 10;
+    -webkit-transition: all 200ms ease;
+    -moz-transition: all 200ms ease;
+    -ms-transition: all 200ms ease;
+    -o-transition: all 200ms ease;
+    transition: all 200ms ease;
+}
+
+.header_content
+{
+    width: calc(100% - 279px);
+    height: 100%;
+}
+.header_content::before
+{
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    content: '';
+    box-shadow: 0px 20px 49px rgba(0,0,0,0.67);
+    z-index: -1;
+}
+
+/*********************************
+3.1 Logo
+*********************************/
+
+.logo_container
+{
+    display: inline-block;
+    padding-left: 76px;
+}
+.logo img{
+  width: 300px;
+  height:43px;
+}
+
+/*********************************
+3.2 Main Nav
+*********************************/
+
+.main_nav_container
+{
+    display: inline-block;
+    margin-left: auto;
+    padding-right: 93px;
+}
+.main_nav
+{
+    margin-top: 7px;
+}
+.main_nav_item
+{
+    display: inline-block;
+    margin-right: 40px;
+}
+.main_nav_item:last-child
+{
+    margin-right: 0px;
+}
+.main_nav_item a
+{
+    font-family: 'Open Sans', sans-serif;
+    font-size: 14px;
+    text-transform: uppercase;
+    font-weight: 700;
+    color: #3a3a3a;
+    -webkit-transition: all 200ms ease;
+    -moz-transition: all 200ms ease;
+    -ms-transition: all 200ms ease;
+    -o-transition: all 200ms ease;
+    transition: all 200ms ease;
+}
+.main_nav_item a:hover
+{
+    color: #8458B3;
+}
+
+
+
+/* The snackbar - position it at the bottom and in the middle of the screen */
+#snackbar {
+	visibility: hidden; /* Hidden by default. Visible on click */
+	min-width: 250px; /* Set a default minimum width */
+	margin-left: -125px; /* Divide value of min-width by 2 */
+	background-color: #8458b3; /* Black background color */
+	color: #fff; /* White text color */
+	text-align: center; /* Centered text */
+	border-radius: 2px; /* Rounded borders */
+	padding: 16px; /* Padding */
+	position: fixed; /* Sit on top of the screen */
+	z-index: 15; /* Add a z-index if needed */
+	right: 2%; /* Center the snackbar */
+	bottom: 30px; /* 30px from the bottom */
+  }
+  
+  /* Show the snackbar when clicking on a button (class added with JavaScript) */
+  #snackbar.show {
+	visibility: visible; /* Show the snackbar */
+	/* Add animation: Take 0.5 seconds to fade in and out the snackbar.
+	However, delay the fade out process for 2.5 seconds */
+	-webkit-animation: fadein 0.5s, fadeout 0.5s 11.5s;
+	animation: fadein 0.5s, fadeout 0.5s 11.5s;
+  }
+  
+  /* Animations to fade the snackbar in and out */
+  @-webkit-keyframes fadein {
+	from {bottom: 0; opacity: 0;}
+	to {bottom: 30px; opacity: 1;}
+  }
+  
+  @keyframes fadein {
+	from {bottom: 0; opacity: 0;}
+	to {bottom: 30px; opacity: 1;}
+  }
+  
+  @-webkit-keyframes fadeout {
+	from {bottom: 30px; opacity: 1;}
+	to {bottom: 0; opacity: 0;}
+  }
+  
+  @keyframes fadeout {
+	from {bottom: 30px; opacity: 1;}
+	to {bottom: 0; opacity: 0;}
+  }
+
+
+
+
+  /* The snackbar - position it at the bottom and in the middle of the screen */
+#snackbar1 {
+	visibility: hidden; /* Hidden by default. Visible on click */
+	min-width: 250px; /* Set a default minimum width */
+	margin-left: -125px; /* Divide value of min-width by 2 */
+	background-color: #8458b3; /* Black background color */
+	color: #fff; /* White text color */
+	text-align: center; /* Centered text */
+	border-radius: 2px; /* Rounded borders */
+	padding: 16px; /* Padding */
+	position: fixed; /* Sit on top of the screen */
+	z-index: 15; /* Add a z-index if needed */
+	right: 2%; /* Center the snackbar */
+	bottom: 100px; /* 30px from the bottom */
+  }
+  
+  /* Show the snackbar when clicking on a button (class added with JavaScript) */
+  #snackbar1.show {
+	visibility: visible; /* Show the snackbar */
+	/* Add animation: Take 0.5 seconds to fade in and out the snackbar.
+	However, delay the fade out process for 2.5 seconds */
+	-webkit-animation: fadein1 0.5s, fadeout1 0.5s 11.5s;
+	animation: fadein1 0.5s, fadeout1 0.5s 11.5s;
+  }
+  
+  /* Animations to fade the snackbar in and out */
+  @-webkit-keyframes fadein1 {
+	from {bottom: 0; opacity: 0;}
+	to {bottom: 100px; opacity: 1;}
+  }
+  
+  @keyframes fadein1 {
+	from {bottom: 0; opacity: 0;}
+	to {bottom: 100px; opacity: 1;}
+  }
+  
+  @-webkit-keyframes fadeout1 {
+	from {bottom: 30px; opacity: 1;}
+	to {bottom: 0; opacity: 0;}
+  }
+  
+  @keyframes fadeout1 {
+	from {bottom: 30px; opacity: 1;}
+	to {bottom: 0; opacity: 0;}
+  }
+
+    /* The snackbar - position it at the bottom and in the middle of the screen */
+#snackbar-alert {
+	visibility: hidden; /* Hidden by default. Visible on click */
+	min-width: 250px; /* Set a default minimum width */
+	margin: auto; /* Divide value of min-width by 2 */
+	background-color: #8458b3; /* Black background color */
+	color: #fff; /* White text color */
+	text-align: center; /* Centered text */
+	border-radius: 2px; /* Rounded borders */
+	padding: 16px; /* Padding */
+	position: fixed; /* Sit on top of the screen */
+	z-index: 15; /* Add a z-index if needed */
+	left: 42%; /* Center the snackbar */
+	top: 100px; /* 30px from the bottom */
+  }
+  
+  /* Show the snackbar when clicking on a button (class added with JavaScript) */
+  #snackbar-alert.show {
+	visibility: visible; /* Show the snackbar */
+	/* Add animation: Take 0.5 seconds to fade in and out the snackbar.
+	However, delay the fade out process for 2.5 seconds */
+	-webkit-animation: fadein-a 1.0s, fadeout-a 0.5s 11.5s;
+	animation: fadein-a 1.0s, fadeout-a 0.5s 11.5s;
+  }
+  
+  /* Animations to fade the snackbar in and out */
+  @-webkit-keyframes fadein-a {
+	from {top: 0; opacity: 0;}
+	to {top: 100px; opacity: 1;}
+  }
+  
+  @keyframes fadein-a {
+	from {top: 0; opacity: 0;}
+	to {top: 100px; opacity: 1;}
+  }
+  
+  @-webkit-keyframes fadeout-a {
+	from {top: 100px; opacity: 1;}
+	to {top: 0; opacity: 0;}
+  }
+  
+  @keyframes fadeout-a {
+	from {top: 30px; opacity: 1;}
+	to {top: 0; opacity: 0;}
+  }
+
+
+  .success-gif{
+    margin-left: 120px;
+
+  }
+/*********************************
+3.3 Header Side
+*********************************/
+
+.header_side
+{
+    width: 279px;
+    height: 100%;
+    background: #8458B3;
+}
+.header_side img
+{
+    width: 29px;
+    height: 29px;
+}
+.header_side span
+{
+    display: block;
+    position: relative;
+    font-size: 18px;
+    font-weight: 500;
+    color: #FFFFFF;
+    padding-left: 12px;
+}
+
+/*********************************
+3.4 Hamburger
+*********************************/
+
+.hamburger_container
+{
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  -o-transform: translateY(-50%);
+  transform: translateY(-50%);
+  left: 20px;
+  display: none;
+  cursor: pointer;
+}
+.hamburger_container i
+{
+  font-size: 24px;
+  padding: 10px;
+  color: #3a3a3a;
+}
+.hamburger_container:hover i
+{
+  color: #8458B3;
+}
+
+/*********************************
+4. Menu
+*********************************/
+
+.menu_container
+{
+  position: fixed;
+  top: 0;
+  left: -50vw;
+  width: 50vw;
+  height: 100vh;
+  background: #FFFFFF;
+  z-index: 12;
+  -webkit-transition: all 0.6s ease;
+  -moz-transition: all 0.6s ease;
+  -ms-transition: all 0.6s ease;
+  -o-transition: all 0.6s ease;
+  transition: all 0.6s ease;
+  visibility: hidden;
+  opacity: 0;
+}
+.menu_container.active
+{
+  visibility: visible;
+  opacity: 1;
+  left: 0;
+}
+.menu
+{
+  position: absolute;
+  top:150px;
+  left: 0;
+  padding-left: 15%;
+}
+.menu_list
+{
+  -webkit-transform: translateY(3.5rem);
+  -moz-transform: translateY(3.5rem);
+  -ms-transform: translateY(3.5rem);
+  -o-transform: translateY(3.5rem);
+  transform: translateY(3.5rem);
+  -webkit-transition: all 200ms ease;
+  -moz-transition: all 200ms ease;
+  -ms-transition: all 200ms ease;
+  -o-transition: all 200ms ease;
+  transition: all 1000ms 600ms ease;
+  opacity: 0;
+}
+.menu_container.active .menu_list
+{
+  -webkit-transform: translateY(0px);
+  -moz-transform: translateY(0px);
+  -ms-transform: translateY(0px);
+  -o-transform: translateY(0px);
+  transform: translateY(0px);
+  opacity: 1;
+}
+.menu_item
+{
+  margin-bottom: 9px;
+}
+.menu_item a
+{
+  font-family: 'Open Sans', sans-serif;
+  font-size: 36px;
+  font-weight: 700;
+  color: #3a3a3a;
+  -webkit-transition: all 200ms ease;
+  -moz-transition: all 200ms ease;
+  -ms-transition: all 200ms ease;
+  -o-transition: all 200ms ease;
+  transition: all 200ms ease;
+}
+.menu_item a:hover
+{
+  color: #8458B3;
+}
+.menu_close_container
+{
+  position: absolute;
+  top: 86px;
+  right: 79px;
+  width: 21px;
+  height: 21px;
+  cursor: pointer;
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  -o-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+.menu_close
+{
+  top: 9px;
+  width: 21px;
+  height: 3px;
+  background: #3a3a3a;
+  -webkit-transition: all 200ms ease;
+  -moz-transition: all 200ms ease;
+  -ms-transition: all 200ms ease;
+  -o-transition: all 200ms ease;
+  transition: all 200ms ease;
+}
+.menu_close::after
+{
+  display: block;
+  position: absolute;
+  top: -9px;
+  left: 9px;
+  content: '';
+  width: 3px;
+  height: 21px;
+  background: #3a3a3a;
+  -webkit-transition: all 200ms ease;
+  -moz-transition: all 200ms ease;
+  -ms-transition: all 200ms ease;
+  -o-transition: all 200ms ease;
+  transition: all 200ms ease;
+}
+.menu_close_container:hover .menu_close,
+.menu_close_container:hover .menu_close::after
+{
+  background: #8458B3;
+}
+
+/*********************************
+4.1 Menu Social
+*********************************/
+
+.menu_social_container
+{
+  margin-top: 100px;
+  -webkit-transform: translateY(3.5rem);
+  -moz-transform: translateY(3.5rem);
+  -ms-transform: translateY(3.5rem);
+  -o-transform: translateY(3.5rem);
+  transform: translateY(3.5rem);
+  -webkit-transition: all 1000ms 1000ms ease;
+  -moz-transition: all 1000ms 1000ms ease;
+  -ms-transition: all 1000ms 1000ms ease;
+  -o-transition: all 1000ms 1000ms ease;
+  transition: all 1000ms 1000ms ease;
+  opacity: 0;
+  padding-left: 4px;
+}
+.menu_social_item
+{
+  display: inline-block;
+  margin-right: 30px;
+}
+.menu_social_item a i
+{
+  color: #3a3a3a;
+}
+.menu_social_item a i:hover
+{
+  color: #8458B3;
+}
+.menu_container.active .menu_social_container
+{
+  -webkit-transform: translateY(0px);
+  -moz-transform: translateY(0px);
+  -ms-transform: translateY(0px);
+  -o-transform: translateY(0px);
+  transform: translateY(0px);
+  opacity: 1;
+}
+ 
+
+.first-container{
+  
+  height: 400px;
+ background-color: #4c504f;
+
+ 
+ 
+}
+.title{
+  padding-top: 6%;
+  color: #825aa6;
+  font-size: 1.9rem;
+  font-family: 'Roboto', sans-serif;
+  padding-left: 6%;
+}
+.discription{
+  padding-top: 2%;
+  padding-left: 6%;
+  font-family: 'Roboto', sans-serif;
+  font-size: 1.2rem;
+  color: white;
+  
+
+}
+.first-button{
+  margin-top: 3%;
+  padding-left: 6%;
+  font-size: 18px;
+}
+.container-2{
+
+
+background-color: white !important;
+margin-top: 6%;
+max-width: 200%;
+padding-left: 6%;
+ margin-bottom: auto;
+
+
+
+}
+.application{
+  margin-left: 7%;
+  margin-top: 5%;
+  font-family: 'Roboto', sans-serif;
+  background-color: white !important;
+  color:#000;
+ 
+}
+.container-2 p{
+  color:#000;
+  font-size:20px;
+  font-family: 'Roboto', sans-serif;
+
+ 
+}
+
+
+#hello{
+  margin-top: auto;
+}
+.list-heading{
+  font-size: 22px;
+}
+.appli-list{
+  margin-left: 2.2%;
+  margin-top: 2%;
+  font-family: 'Roboto', sans-serif;
+  font-size: 20px;
+}
+.appli-list li:before {
+  content:"\2713\0020";
+}
+.our-mentor{
+  color:#000;
+  margin-top: auto;
+  background-color: white;
+  max-height: 150px;
+
+}
+.mentor-heading{
+  font-size: 22px;
+  color: #000;
+  font-family: 'Roboto', sans-serif;
+  margin-left: 6%;
+}
+.mentor-des{
+  font-size: 20px;
+  margin-left: 6%;
+   color:#000;
+   font-family: 'Roboto', sans-serif;
+  list-style-type: circle;
+   margin-bottom: 6%;
+  
+}
+.button-container{
+  padding-top: 5%;
+  padding-bottom: 5%;
+ 
+}
+
+.mybutton2{
+margin-left: 7%;
+margin-top: 4%;
+font-size: 18px;
+}
+
+.mybutton3{
+margin-left: 50%;
+margin-top: 4%;
+font-size: 18px;
+}
+
+/********************************
+login modal
+********************************/
+ .login .container{
+    max-width: 700px;
+}
+
+.login
+{
+    width: 100%;
+    background: #1a1a1a;
+}
+.login_background_container
+{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+.login_background
+{
+    width: 100%;
+    height: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    opacity: 0.47;
+}
+
+
+.box {
+    /*width: 500px;*/
+   
+    /*position: absolute;
+    /*top: 50%;
+    left: 50%;*/
+    background: none;
+   
+    text-align: center;
+    transition: 0.25s;
+   
+ 
+    
+    align-self: center; 
+}
+
+.box input[type="email"],
+.box input[type="password"] {
+    border: 0;
+    background: #ffffff ;
+    display: block;
+    margin: 20px auto;
+    text-align: center;
+    border: 2px solid #000;
+    padding: 10px 10px;
+    width: 75%;
+    outline: none;
+    color: #000300;
+       
+    transition: 0.25s
+}
+
+.box h1 {
+  
+    font-weight: 500;
+    font-variant: small-caps;
+}
+
+.box input[type="text"]:focus,
+.box input[type="password"]:focus {
+    width: 50%;
+    border-color: #C7D66D;
+}
+
+.box input[type="submit"] {
+    border: 0;
+    background-image: linear-gradient(to bottom right, #a6b1e1, #dcd6f7);
+    display: block;
+    font-size: 1.7rem;
+    margin: 20px auto;
+    text-align: center;
+    border: 2px solid #2ecc71;
+    padding: 0px;
+    outline: none;
+    color: #000300; 
+    
+    transition: 0.25s;
+    cursor: pointer;
+    width: 50%
+}
+
+.box input[type="submit"]:hover {
+   background-image: linear-gradient(to bottom right, #dcd6f7, #a6b1e1);
+}
+.mybutton{
+    
+    background-color: #9873BF;
+    border-radius: 0px;
+}
+.mybutton:hover{
+ background-color: #8458B3;
+}
+
+.forgot {
+    
+    color: #000 !important;
+    text-decoration: underline;
+    font-size:1rem;
+    
+}
+.forgot:hover{
+    opacity: 0.6;
+}
+.other-links{
+    margin-top: 20px;
+}
+.sign-up{
+    margin-top: 20px;
+}
+.signup{
+
+    
+    text-decoration: none;
+    font-size: 1.6rem;
+}
+.google-sign-container{
+   
+    color: #fff !important;
+
+
+}
+.google-sign-container:hover{
+   opacity:0.6;
+
+
+}
+.google-signin-btn{
+    margin-left: 20px;
+    background-color: white;
+     border-radius: 0px;
+    
+}
+
+/*********************************
+info modal
+*********************************/
+
+#infoModal, #beAMentorModal {
+  color:#000 !important;
+}
+#infoModal, #beAMentorModal h4{
+  color:#8458B3 !important;
+}
+
+
+
+
+
+
+
+
+
+
+
+/*********************************
+15. Footer
+*********************************/
+
+.footer
+{
+  width: 100%;
+  padding-top: 86px;
+  background: #1a1a1a;
+}
+.footer .section_title h1
+{
+  color: #FFFFFF;
+}
+
+/*********************************
+15.1 WantsToKnow
+*********************************/
+
+.newsletter
+{
+  padding-bottom: 85px;
+  border-bottom: solid 2px #4d4e4e;
+}
+.newsletter_form_container
+{
+  width: 60%;
+  margin-top: 48px;
+}
+.newsletter_email
+{
+  width: calc(100% - 164px);
+  height: 42px;
+  border: none;
+  padding-left: 27px;
+  font-weight: 500;
+  color: #1a1a1a;
+}
+.newsletter_email:focus
+{
+  outline: solid 2px #ffb606;
+}
+.newsletter_submit_btn
+{
+  width: 164px;
+  height: 42px;
+  border: none;
+  background: #8458B3;
+  color: #FFFFFF;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+}
+.newsletter_submit_btn:focus
+{
+  border: solid 2px #FFFFFF;
+}
+
+/*********************************
+15.2 Footer Content
+*********************************/
+
+.footer_content 
+{
+  padding-top: 80px;
+  padding-bottom: 83px;
+  border-bottom: solid 2px #4d4e4e;
+}
+.footer_content .logo_container
+{
+  padding-left: 0px;
+}
+.footer_content .logo span
+{
+  color: #FFFFFF;
+}
+.footer_content .logo img
+{
+  width:250px;
+  height:43px;
+}
+.footer_about_text
+{
+  margin-top: 24px;
+  margin-bottom: 0px;
+  padding-right: 20px;
+}
+.footer_column_title
+{
+  font-size: 18px;
+  font-weight: 500;
+  color: #FFFFFF;
+  padding-top: 15px;
+}
+.footer_column_content
+{
+  margin-top: 32px;
+}
+.footer_list_item
+{
+  margin-bottom: 11px;
+}
+.footer_list_item a
+{
+  font-size: 14px;
+  color: #a5a5a5;
+  -webkit-transition: all 200ms ease;
+  -moz-transition: all 200ms ease;
+  -ms-transition: all 200ms ease;
+  -o-transition: all 200ms ease;
+  transition: all 200ms ease;
+}
+.footer_list_item a:hover
+{
+  color: #8458B3;
+}
+.footer_contact_item
+{
+  font-size: 14px;
+  font-weight: 400;
+  
+  margin-bottom: 22px;
+}
+.footer_contact_item:last-child
+{
+  margin-bottom: 0px;
+}
+.footer_contact_icon
+{
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  vertical-align: middle;
+  margin-right: 10px;
+}
+.footer_contact_icon img
+{
+  width: 100%;
+}
+
+/*********************************
+15.3 Footer Copyright
+*********************************/
+
+.footer_bar
+{
+  padding-top: 19px;
+  padding-bottom: 19px;
+}
+.privacy_terms{
+  font-family: 'Open Sans', sans-serif;
+  font-size: 14px;
+  text-transform: capitalize;
+  font-weight: 700;
+  color: #3a3a3a;
+  -webkit-transition: all 200ms ease;
+  -moz-transition: all 200ms ease;
+  -ms-transition: all 200ms ease;
+  -o-transition: all 200ms ease;
+  transition: all 200ms ease;
+
+}
+.footer_social .menu_social_item a i
+{
+  color: #FFFFFF;
+}
+.footer_social .menu_social_item a i:hover
+{
+  color: #8458B3;
+}
+.footer_social .menu_social_item:last-child
+{
+  margin-right: 0px;
+}
+
+

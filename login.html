@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <script src="https://www.gstatic.com/firebasejs/7.16.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.16.1/firebase-auth.js"></script>
+  <script src="js/database.js"></script>
+  
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="description" content="Course Project">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>WP | Login</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <link href="plugins/fontawesome-free-5.0.1/css/fontawesome-all.css" rel="stylesheet" type="text/css">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+
+  <link rel="stylesheet" type="text/css" href="css/logstyle.css">
+  <link rel="stylesheet" type="text/css" href="log_responsive.css">
+
+
+
+
+
+<link rel="icon" href="images/Fav.png" type="image/x-icon">
+
+
+  <style type="text/css">
+    /*html { font-size: 1.2rem; }*/
+  </style>
+</head>
+
+
+<body class="back_img">
+
+  <div class="super_container">
+
+    <!-- Header -->
+
+    <header class="header d-flex flex-row">
+      <div class="header_content d-flex flex-row align-items-center">
+        <!-- Logo -->
+        <div class="logo_container">
+          <div class="logo" onclick="location.href='index.html'" style="cursor: pointer;">
+            <img src="images/purple.png" alt="">
+           
+          </div>
+        </div>
+
+        <!-- Main Navigation -->
+        <nav class="main_nav_container">
+          <div class="main_nav">
+            <ul class="main_nav_list">
+              <li class="main_nav_item"><a href="index.html">home</a></li>
+              <li class="main_nav_item"><a href="aboutUs_new.html">about us</a></li>
+              <li class="main_nav_item"><a href="courses.html">Categories</a></li>
+
+            </ul>
+          </div>
+        </nav>
+      </div>
+      <div class="header_side d-flex flex-row justify-content-center align-items-center">
+
+        <span></span>
+      </div>
+
+      <!-- Hamburger -->
+      <div class="hamburger_container">
+        <i class="fas fa-bars trans_200"></i>
+      </div>
+
+    </header>
+
+    <!-- Menu -->
+    <div class="menu_container menu_mm">
+
+      <!-- Menu Close Button -->
+      <div class="menu_close_container">
+        <div class="menu_close"></div>
+      </div>
+
+      <!-- Menu Items -->
+      <div class="menu_inner menu_mm">
+        <div class="menu menu_mm">
+          <ul class="menu_list menu_mm">
+            <li class="menu_item menu_mm"><a href="index.html">Home</a></li>
+            <li class="menu_item menu_mm"><a href="aboutUs_new.html">About us</a></li>
+            <li class="menu_item menu_mm"><a href="courses.html">Categories</a></li>
+
+
+          </ul>
+
+          <!-- Menu Social -->
+
+          <div class="menu_social_container menu_mm">
+            <ul class="menu_social menu_mm">
+
+              <li class="menu_social_item menu_mm"><a href="https://www.linkedin.com/in/wise-potato-1366501b6/"><i class="fab fa-linkedin-in"></i></a></li>
+							<li class="menu_social_item menu_mm"><a href="https://instagram.com/wisepotato.in?igshid=1tlu10kmbd3he"><i class="fab fa-instagram"></i></a></li>
+
+
+            </ul>
+          </div>
+
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <div id="snackbar-alert">Some text some message..</div> 
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Password Recovery</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            An Email for password recovery has been sent to you.
+            Please check your Mail and click on the link provided in the mail to reset your Password.
+          </div>
+          <div class="modal-footer">
+
+            <button type="button" class="btn btn-primary" data-dismiss="modal">Ok</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="login">
+      <div class="login_background_container prlx_parent">
+        <div class="login_background prlx" style="background-image:url(background3.jfif)"></div>
+      </div>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-10">
+
+            <form class="box">
+              <h1 id="logname"><span style="font-size: 45px; font-family: Aparajita;">Wise</span><strong><span style="font-size: 45px; font-family: Lakki Reddy; color: #8458b3"> Potato</strong></h1>
+
+              <input type="email" placeholder="Email" id="email_input"></input>
+              <input type="password" placeholder="Password" id="password_input"></input>
+              <label>
+                <input type="checkbox" checked="" name="remember" id="check_box" style="margin-bottom:15px"> Remember me
+              </label><br>
+              <button class="btn mybutton" onclick="login()" type="button">Login</button>
+              <div class="col-md-12">
+                <a class="forgot text-muted" onclick="password_reset()" type="button">Forgot password?</a>
+                <br>
+                <a class="signup" href="signup.html">Sign Up</a>
+
+              </div>
+              <div class="col-md-12  google-sign-container">
+                or
+                <br>
+                <button type="button" class="btn  btn-sm google-signin-btn" onclick="google_sign()"><img
+                    src="https://img.icons8.com/color/30/000000/google-logo.png"></img> Sign in with Google</button>
+
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- Footer -->
+  
+  <footer class="footer" style="background-color: #525252">
+    <div class="container">
+
+      
+      <!-- Footer Content -->
+
+      <div class="footer_content">
+        <div class="row">
+
+          <!-- Footer Column - About -->
+          <div class="col-lg-4 footer_col">
+
+            <!-- Logo -->
+            <div class="logo_container">
+              <div class="logo">
+                <img src="images/purple.png">
+                
+              </div>
+            </div>
+
+            <p class="footer_about_text">Connecting &bull; Helping &bull; Nurturing</p>
+
+          </div>
+
+          <!-- Footer Column - Menu -->
+
+          <div class="col-lg-4 footer_col">
+            <div class="footer_column_title">Menu</div>
+            <div class="footer_column_content">
+              <ul>
+                <li class="footer_list_item"><a href="index.html">Home</a></li>
+                <li class="footer_list_item"><a href="aboutUs_new.html">About Us</a></li>
+                <li class="footer_list_item"><a href="login.html">Sign in</a></li>
+
+              </ul>
+            </div>
+          </div>
+
+          <!-- Footer Column - Usefull Links -->
+
+
+
+          <!-- Footer Column - Contact -->
+
+          <div class="col-lg-4 footer_col">
+            <div class="footer_column_title">Contact</div>
+            <div class="footer_column_content">
+              <ul>
+                <li class="footer_contact_item">
+                  <i class="fas fa-map-marker-alt"></i>
+                  &nbsp 666 - Upper Indira Nagar,
+                  &nbspBibwewadi
+                  Pune-411037
+                </li>
+                <li class="footer_contact_item">
+                  <div class="fas fa-phone mr-3">
+
+                  </div>
+                  +91 98506 90347
+                </li>
+                <li class="footer_contact_item">
+                  <p>
+                    <i class="fas fa-envelope mr-3"></i>
+                    <a href="mailto:support@wisepotato.in">support@wisepotato.in</a></p>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Footer Copyright -->
+
+      <div class="footer_bar d-flex flex-column flex-sm-row align-items-center">
+        <div class="footer_copyright">
+          <span>
+            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+            Copyright &copy;
+            <script>document.write(new Date().getFullYear());</script> <a href="www.wisepotato.in"
+              target="_blank">wisepotato.in</a>
+            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></span>
+
+        </div>
+
+        <li class="privacy_terms"><a href="privacy.html">Privacy</a></li>
+
+        <li class="privacy_terms"><a href="Terms.html">terms</a></li>
+
+
+        <div class="footer_social ml-sm-auto">
+
+          <ul class="menu_social">
+
+          <!--  <li class="menu_social_item"><a href="#"><i class="fab fa-facebook-f"></i></a></li> -->
+            <li class="menu_social_item"><a href="https://www.linkedin.com/in/wise-potato-1366501b6/"><i class="fab fa-linkedin-in"></i></a></li>
+            <li class="menu_social_item"><a href="https://instagram.com/wisepotato.in?igshid=1tlu10kmbd3he"><i class="fab fa-instagram"></i></a></li>
+
+
+          </ul>
+
+
+
+
+        </div>
+
+
+          <div class="3HS ml-sm-auto">
+            <ul>
+              <li>A Project by:</li>
+              <li><img src="images/3HS.png" height="44px" width="44px"></a></li>
+              <li><span style="font-family: Agency FB; color: #ffffff; font-size: 25px;">3Hundred Solutions</span></li>
+            </ul>
+          </div>
+
+      </div>
+
+    </div>
+  </footer>
+
+    <!-- Footer -->
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <script src="css/bootstrap4/popper.js"></script>
+    <script src="css/bootstrap4/bootstrap.min.js"></script>
+    <script src="plugins/greensock/TweenMax.min.js"></script>
+    <script src="plugins/greensock/TimelineMax.min.js"></script>
+    <script src="plugins/scrollmagic/ScrollMagic.min.js"></script>
+    <script src="plugins/greensock/animation.gsap.min.js"></script>
+    <script src="plugins/greensock/ScrollToPlugin.min.js"></script>
+    <script src="plugins/scrollTo/jquery.scrollTo.min.js"></script>
+    <script src="plugins/easing/easing.js"></script>
+    <script src="js/teachers_custom.js"></script>
+    <script src="js/index.js"></script>
+
+</body>
+
+</html>
