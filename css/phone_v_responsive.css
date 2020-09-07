@@ -283,6 +283,10 @@
 	left: 30%; /* Center the snackbar */
 	
   }
+  .logo img
+	{
+		width: 200px;
+	}
 
 
 }
@@ -317,7 +321,7 @@
 	}
 	.logo img
 	{
-		width: 30px;
+		width: 150px;
 	}
 	.logo span
 	{

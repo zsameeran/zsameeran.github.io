@@ -16,7 +16,7 @@ window.onload = function () {
 }
 googleUser = sessionStorage.getItem('isGoogleUser');
 console.log(googleUser);
-if (googleUser != true) {
+if (googleUser != 'true') {
   last_email = sessionStorage.getItem('user_emailAddress');
   last_pass = atob(sessionStorage.getItem('user_pass'));
 
@@ -101,7 +101,7 @@ function replaceAccount() {
     user.delete().then(function () {
       // User deleted.
       // alert("delete success");
-      if (googleUser != true) {
+      if (googleUser != 'true') {
         firebase.auth().signInWithEmailAndPassword(last_email, last_pass).then(function (result) {
           //alert("sign in success");
           
