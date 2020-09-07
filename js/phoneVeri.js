@@ -15,7 +15,7 @@ window.onload = function () {
   appVerifier.render();
 }
 googleUser = sessionStorage.getItem('isGoogleUser');
-
+console.log(googleUser);
 if (googleUser != true) {
   last_email = sessionStorage.getItem('user_emailAddress');
   last_pass = atob(sessionStorage.getItem('user_pass'));
